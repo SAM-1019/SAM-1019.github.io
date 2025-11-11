@@ -3,139 +3,404 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人网站</title>
+    <title>SΔM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- 全屏背景：替换 url 中的路径为你的初始背景图路径 -->
+    <div class="fullscreen-bg" style="background-image: url('images/beijing/initial.jpg');"></div>
 
-    <!-- 导航栏 -->
-    <nav>
-        <div class="container">
-            <h1 class="logo">我的网站</h1>
-            <ul class="nav-links">
-                <li><a href="#about">关于我</a></li>
-                <li><a href="#skills">技能</a></li>
-                <li><a href="#projects">项目</a></li>
-                <li><a href="#contact">联系方式</a></li>
+    <!-- 主容器 -->
+    <div class="main-container">
+        <!-- 左侧导航区 -->
+        <nav class="left-nav">
+            <div class="site-title">
+                <h1>SΔM</h1>
+            </div>
+            
+            <ul class="project-list">
+                <li class="project-item" data-project="comic">comic</li>
+                <li class="project-item" data-project="painting">painting</li>
+                <li class="project-item" data-project="photography">photography</li>
+                <li class="project-item" data-project="film">film</li>
+                <li class="project-item" data-project="world">world</li>
             </ul>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- 头部横幅 -->
-    <header class="header">
-        <div class="container">
-            <h1>你好，我是<span>SAM</span></h1>
-            <p>一名热爱艺术的创作人</p>
-            <a href="#about" class="btn">了解更多</a>
-        </div>
-    </header>
+        <!-- 右侧内容区：已删除初始占位提示 -->
+        <div class="right-content">
+            <!-- 漫画内容：只留单本，删除“更多漫画” -->
+            <div id="comic-content" class="content-wrapper">
+                <div class="comic-main">
+                    <!-- 主展示区：封面已设置往右下角移 -->
+                    <div class="comic-featured">
+                        <img src="images/comic/fengmian.png" alt="当前漫画封面" class="comic-featured-img">
+                        <div class="comic-info">
+                            <h2 class="comic-title">回忆</h2>
+                            <p class="comic-desc">回到过去，记录回忆，那里有你需要的答案。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <!-- 关于我部分 -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>关于我</h2>
-            <div class="about-content">
-                <img src="https://via.placeholder.com/200" alt="个人照片">
-                <div class="about-text">
-                    <h3>你好，我是<span>SAM</span></h3>
-                    <p>我是一名热爱艺术的创作人。</p>
-                    <p>我喜欢绘画，电影，摄影。</p>
+            <!-- 绘画内容 -->
+            <div id="painting-content" class="content-wrapper">
+                <div class="masonry-gallery">
+                    <div class="masonry-item">
+                        <img src="images/painting/work1.jpg" alt="绘画作品1" data-src="images/painting/work1.jpg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/painting/work2.jpg" alt="绘画作品2" data-src="images/painting/work2.jpg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/painting/work11.jpg" alt="绘画作品3" data-src="images/painting/work11.jpg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/painting/work4.jpg" alt="绘画作品4" data-src="images/painting/work4.jpg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/painting/work5.jpg" alt="绘画作品5" data-src="images/painting/work5.jpg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/painting/work6.jpg" alt="绘画作品6" data-src="images/painting/work6.jpg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/painting/work7.jpg" alt="绘画作品7" data-src="images/painting/work7.jpg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/painting/work8.jpg" alt="绘画作品8" data-src="images/painting/work8.jpg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/painting/work9.jpg" alt="绘画作品9" data-src="images/painting/work9.jpg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/painting/work10.jpg" alt="绘画作品10" data-src="images/painting/work10.jpg">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 摄影内容 -->
+            <div id="photography-content" class="content-wrapper">
+                <div class="masonry-gallery">
+                    <div class="masonry-item">
+                        <img src="images/photography/work1.jpeg" alt="摄影作品1" data-src="images/photography/work1.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work2.jpeg" alt="摄影作品2" data-src="images/photography/work2.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work3.jpeg" alt="摄影作品3" data-src="images/photography/work3.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work4.jpeg" alt="摄影作品4" data-src="images/photography/work4.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work5.jpeg" alt="摄影作品5" data-src="images/photography/work5.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work6.jpeg" alt="摄影作品6" data-src="images/photography/work6.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work7.jpeg" alt="摄影作品7" data-src="images/photography/work7.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work8.jpeg" alt="摄影作品8" data-src="images/photography/work8.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work9.jpeg" alt="摄影作品9" data-src="images/photography/work9.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work2.jpeg" alt="摄影作品10" data-src="images/photography/work10.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work11.jpeg" alt="摄影作品3" data-src="images/photography/work11.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work12.jpeg" alt="摄影作品4" data-src="images/photography/work12.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work13.jpeg" alt="摄影作品5" data-src="images/photography/work13.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work14.jpeg" alt="摄影作品6" data-src="images/photography/work14.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work15.jpeg" alt="摄影作品7" data-src="images/photography/work15.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work16.jpeg" alt="摄影作品8" data-src="images/photography/work16.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work17.jpeg" alt="摄影作品9" data-src="images/photography/work17.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work18.jpeg" alt="摄影作品2" data-src="images/photography/work18.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work19.jpeg" alt="摄影作品3" data-src="images/photography/work19.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work20.jpeg" alt="摄影作品4" data-src="images/photography/work20.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work21.jpeg" alt="摄影作品5" data-src="images/photography/work21.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work22.jpeg" alt="摄影作品6" data-src="images/photography/work22.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work23.jpeg" alt="摄影作品7" data-src="images/photography/work23.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work24.jpeg" alt="摄影作品8" data-src="images/photography/work24.jpeg">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="images/photography/work25.jpeg" alt="摄影作品9" data-src="images/photography/work25.jpeg">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 电影内容 -->
+            <div id="film-content" class="content-wrapper">
+                <div class="film-gallery">
+                    <div class="film-item">
+                        <a href="https://t.bilibili.com/370978307003107568?share_source=pc_native" target="_blank">
+                            <img src="images/flim/work1.jpg" alt="电影海报1">
+                            <div class="film-title">HOME</div>
+                        </a>
+                    </div>
+                    <div class="film-item">
+                        <a href="https://t.bilibili.com/371588729226417088?share_source=pc_native" target="_blank">
+                            <img src="images/flim/work3.jpg" alt="电影海报2">
+                            <div class="film-title">HOME2</div>
+                        </a>
+                    </div>
+                    <div class="film-item">
+                        <a href="https://t.bilibili.com/371199141333312602?share_source=pc_native" target="_blank">
+                            <img src="images/flim/work4.jpg" alt="电影海报3">
+                            <div class="film-title">阿公</div>
+                        </a>
+                    </div>
+                    <div class="film-item">
+                        <a href="https://t.bilibili.com/371369960774596074?share_source=pc_native" target="_blank">
+                            <img src="images/flim/work2.jpg" alt="电影海报4">
+                            <div class="film-title">阿公2</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 世界内容 -->
+            <div id="world-content" class="content-wrapper">
+                <div class="notebook">
+                    <div class="note">
+                        <div class="note-date">2025.12.01</div>
+                        <p>一切都会好起来的。</p>
+                    </div>
+                    <div class="note">
+                        <div class="note-date">2025.11.20</div>
+                        <p>新漫画马上就要发布啦</p>
+                    </div>
+                    <div class="note">
+                        <div class="note-date">2025.11.10</div>
+                        <p>给自己捣鼓出来了，第一次有了自己的个人网站。</p>
+                    </div>
+                </div>
+                <div class="profile">
+                    <h3>关于我</h3>
+                    <p>一个热爱生活的创作者，用漫画、绘画、摄影和电影记录世界的美好。喜欢探索不同的艺术表达方式，尤其偏爱简约而富有内涵的风格。</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- 技能部分 -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2>我的技能</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <i class="fas fa-code"></i>
-                    <h3>漫画</h3>
-                    <p>新漫画《回忆》正在不定时更新</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-server"></i>
-                    <h3>绘画</h3>
-                    <p>这里是我画的内心</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database"></i>
-                    <h3>电影</h3>
-                    <p>或许有一天我能制作自己的电影</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>摄影</h3>
-                    <p>记录生活记录当下的每一刻</p>
-                </div>
-            </div>
+    <!-- 漫画全屏阅读区：左右按键在两侧 -->
+    <div id="comic-reader" class="comic-reader">
+        <div class="comic-controls">
+            <span class="comic-page-info">第 1 / 8 页</span>
+            <button class="comic-back-btn"><i class="fas fa-times"></i> 关闭</button>
         </div>
-    </section>
-
-    <!-- 项目部分 -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>我的项目</h2>
-            <div class="projects-grid">
-                <div class="project-item">
-                    <img src="https://via.placeholder.com/400x250" alt="项目图片">
-                    <h3>项目名称 1</h3>
-                    <p>这是一个使用React和Node.js开发的Web应用程序，提供了用户友好的界面和强大的功能。</p>
-                    <a href="#" class="btn">查看详情</a>
-                </div>
-                <div class="project-item">
-                    <img src="https://via.placeholder.com/400x250" alt="项目图片">
-                    <h3>项目名称 2</h3>
-                    <p>这是一个移动应用程序，使用React Native开发，支持iOS和Android平台。</p>
-                    <a href="#" class="btn">查看详情</a>
-                </div>
-                <div class="project-item">
-                    <img src="https://via.placeholder.com/400x250" alt="项目图片">
-                    <h3>项目名称 3</h3>
-                    <p>这是一个电子商务网站，使用Vue.js和Express开发，具有完整的购物流程和支付功能。</p>
-                    <a href="#" class="btn">查看详情</a>
-                </div>
-            </div>
+        <div class="comic-display">
+            <button class="comic-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <img src="" alt="漫画页面" class="comic-page">
+            <button class="comic-btn next-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
-    </section>
+    </div>
 
-    <!-- 联系方式部分 -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>联系我</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>联系方式</h3>
-                    <p><i class="fas fa-envelope"></i> email@example.com</p>
-                    <p><i class="fas fa-phone"></i> +86 123 4567 8901</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 城市，省份，国家</p>
-                </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="姓名" required>
-                    <input type="email" placeholder="邮箱" required>
-                    <textarea placeholder="留言" required></textarea>
-                    <button type="submit" class="btn">发送</button>
-                </form>
-            </div>
-        </div>
-    </section>
+    <!-- 绘画/摄影全屏查看弹窗 -->
+    <div id="fullscreen-view" class="fullscreen-view">
+        <span class="close-fullscreen">&times;</span>
+        <img src="" alt="全屏作品" class="fullscreen-img">
+    </div>
 
-    <!-- 页脚 -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2023 我的个人网站. 保留所有权利.</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </footer>
+    <script>
+        // 项目配置：替换 cursor 中的路径为你的鼠标光标图片路径
+        const projects = [
+            {
+                id: 'comic',
+                bgImage: 'images/beijing/01.jpg',
+                cursor: 'url("images/cursor/comic-cursor.png"), auto' // 漫画板块鼠标光标
+            },
+            {
+                id: 'painting',
+                bgImage: 'images/beijing/02.jpg',
+                cursor: 'url("images/cursor/paint-cursor.png"), auto' // 绘画板块鼠标光标
+            },
+            {
+                id: 'photography',
+                bgImage: 'images/beijing/03.jpg',
+                cursor: 'url("images/cursor/photo-cursor.png"), auto' // 摄影板块鼠标光标
+            },
+            {
+                id: 'film',
+                bgImage: 'images/beijing/04.jpg',
+                cursor: 'url("images/cursor/film-cursor.png"), auto' // 电影板块鼠标光标
+            },
+            {
+                id: 'world',
+                bgImage: 'images/beijing/05.jpg',
+                cursor: 'url("images/cursor/world-cursor.png"), auto' // 世界板块鼠标光标
+            }
+        ];
 
-    <script src="script.js"></script>
+        // 单本漫画内页数据
+        const comicsData = {
+            1: [
+                'images/comic/neiye1.png',
+                'images/comic/neiye2.png',
+                'images/comic/neiye3.png',
+                'images/comic/neiye4.png',
+                'images/comic/neiye5.png',
+                'images/comic/neiye6.png',
+                'images/comic/neiye7.png',
+                'images/comic/neiye8.png',
+                'images/comic/neiye9.png',
+                'images/comic/neiye10.png',
+                'images/comic/neiye11.png',
+                'images/comic/neiye12.png',
+                'images/comic/neiye13.png',
+                'images/comic/neiye14.png',
+                'images/comic/neiye15.png',
+                'images/comic/neiye16.png'
+            ]
+        };
+
+        // 漫画状态变量
+        let currentComicId = '1';
+        let currentPage = 0;
+        let currentComicPages = [];
+
+        // DOM元素获取
+        const bgElement = document.querySelector('.fullscreen-bg');
+        const projectItems = document.querySelectorAll('.project-item');
+        const contentWrappers = document.querySelectorAll('.content-wrapper');
+        const comicFeaturedImg = document.querySelector('.comic-featured-img');
+        const comicReader = document.getElementById('comic-reader');
+        const comicPage = document.querySelector('.comic-page');
+        const pageInfo = document.querySelector('.comic-page-info');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const backBtn = document.querySelector('.comic-back-btn');
+        const fullscreenView = document.getElementById('fullscreen-view');
+        const fullscreenImg = document.querySelector('.fullscreen-img');
+        const closeFullscreen = document.querySelector('.close-fullscreen');
+        const galleryImages = document.querySelectorAll('.masonry-item img');
+
+        // 项目切换（背景+鼠标+内容）
+        projectItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const projectId = item.getAttribute('data-project');
+                const project = projects.find(p => p.id === projectId);
+                
+                if (project) {
+                    // 关闭漫画阅读区
+                    comicReader.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    // 切换背景和鼠标
+                    bgElement.style.backgroundImage = `url('${project.bgImage}')`;
+                    document.body.style.cursor = project.cursor;
+                    
+                    // 切换导航选中状态
+                    projectItems.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                    
+                    // 切换内容显示
+                    contentWrappers.forEach(wrapper => {
+                        wrapper.classList.remove('active');
+                        if (wrapper.id === `${projectId}-content`) wrapper.classList.add('active');
+                    });
+                }
+            });
+        });
+
+        // 点击漫画封面打开阅读
+        comicFeaturedImg.addEventListener('click', () => openComicReader(currentComicId));
+
+        // 打开漫画阅读
+        function openComicReader(id) {
+            currentComicPages = comicsData[id] || [];
+            currentPage = 0;
+            comicReader.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            loadComicPage();
+        }
+
+        // 加载漫画页
+        function loadComicPage() {
+            if (currentComicPages.length === 0) return;
+            comicPage.setAttribute('src', currentComicPages[currentPage]);
+            pageInfo.textContent = `第 ${currentPage + 1} / ${currentComicPages.length} 页`;
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage === currentComicPages.length - 1;
+        }
+
+        // 翻页控制
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 0) { currentPage--; loadComicPage(); }
+        });
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < currentComicPages.length - 1) { currentPage++; loadComicPage(); }
+        });
+
+        // 关闭漫画阅读
+        backBtn.addEventListener('click', () => {
+            comicReader.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // 键盘控制翻页/关闭
+        document.addEventListener('keydown', (e) => {
+            if (comicReader.style.display !== 'none') {
+                if (e.key === 'ArrowLeft' && currentPage > 0) currentPage--;
+                else if (e.key === 'ArrowRight' && currentPage < currentComicPages.length - 1) currentPage++;
+                else if (e.key === 'Escape') {
+                    comicReader.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    return;
+                }
+                loadComicPage();
+            }
+        });
+
+        // 绘画/摄影全屏查看
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                fullscreenImg.setAttribute('src', img.getAttribute('data-src') || img.getAttribute('src'));
+                fullscreenView.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        closeFullscreen.addEventListener('click', () => {
+            fullscreenView.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        fullscreenView.addEventListener('click', (e) => {
+            if (e.target === fullscreenView) {
+                fullscreenView.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
 </body>
 </html>
