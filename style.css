@@ -1,4 +1,4 @@
-/* 莫兰迪色调定义 */
+/* 基础变量定义（莫兰迪色系） */
 :root {
     --morandi-gray: #9b979c;
     --morandi-pink: #d4b5b0;
@@ -23,7 +23,7 @@ body {
     min-height: 100vh;
 }
 
-/* 全屏背景 */
+/* 全屏背景样式 */
 .fullscreen-bg {
     position: fixed;
     top: 0;
@@ -34,10 +34,10 @@ body {
     background-position: center;
     z-index: -1;
     transition: background-image 1s ease-in-out;
-    filter: brightness(0.75);
+    filter: brightness(0.75); /* 降低亮度，提升文字可读性 */
 }
 
-/* 主容器 */
+/* 主容器布局 */
 .main-container {
     display: flex;
     min-height: 100vh;
@@ -45,43 +45,50 @@ body {
     gap: 2rem;
 }
 
-/* 左侧导航区 */
+/* 左侧导航栏样式 */
 .left-nav {
-    flex: 0 0 180px;
+    flex: 0 0 180px; /* 固定宽度，不伸缩 */
     padding: 3.5rem 0 2rem 2.5rem;
     display: flex;
     flex-direction: column;
     color: var(--text-light);
     position: relative;
-    z-index: 2;
+    z-index: 2; /* 确保导航在背景之上 */
 }
 
 .site-title {
     margin-bottom: 2rem;
 }
 
-.site-title h1 {
+#site-logo {
     font-size: 2rem;
     font-weight: 300;
     letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#site-logo:hover {
+    transform: scale(1.05); /*  hover 放大效果 */
+    color: var(--morandi-pink); /* 变色 */
 }
 
 .project-list {
-    list-style: none;
+    list-style: none; /* 去掉列表默认圆点 */
 }
 
 .project-item {
     margin-bottom: 0.5rem;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, opacity 0.2s ease;
     padding-left: 0;
     font-size: 0.9rem;
-    opacity: 0.8;
+    opacity: 0.8; /* 默认半透明 */
 }
 
 .project-item:hover {
-    transform: translateX(3px);
-    opacity: 1;
+    transform: translateX(3px); /* 轻微右移 */
+    opacity: 1; /* 完全不透明 */
 }
 
 .project-item.active {
@@ -89,45 +96,73 @@ body {
     opacity: 1;
 }
 
-/* 右侧内容区 */
+/* 右侧内容区域样式 */
 .right-content {
-    flex: 1;
+    flex: 1; /* 占满剩余空间 */
     padding: 2rem 4rem 2rem 0;
-    margin-left: 15%;
+    margin-left: 15%; /* 左侧留白，提升布局美感 */
     display: block;
     position: relative;
     z-index: 2;
     max-width: calc(100% - 150px);
-    overflow-y: auto;
+    overflow-y: auto; /* 内容超出时滚动 */
     max-height: calc(100vh - 4rem);
 }
 
+/* 内容容器通用样式 */
 .content-wrapper {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1400px; /* 限制最大宽度，避免太宽 */
     padding: 1rem 0;
-    display: none;
+    display: none; /* 默认隐藏，通过JS控制显示 */
 }
 
+/* 内容显示时的淡入动画 */
 .content-wrapper.active {
     display: block;
     animation: fadeIn 0.5s ease-in-out;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(10px); } /* 从下淡入 */
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* 漫画板块：封面再往右下角移（增大margin值） */
+/* 剪纸容器样式 */
+.cut-paper-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 8rem);
+    display: block;
+    margin-top: 2rem;
+}
+
+/* 单张剪纸样式（支持大小调整） */
+.cut-paper-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 25%; /* 默认宽度（可通过JS单独覆盖） */
+    max-width: none; /* 取消最大宽度限制，优先使用width */
+    height: auto; /* 高度自动，保持宽高比 */
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); /* 平滑过渡动画 */
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2)); /* 阴影效果，提升层次感 */
+}
+
+.cut-paper-img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px; /* 轻微圆角，模拟剪纸质感 */
+}
+
+/* 漫画板块样式 */
 .comic-main {
     width: 100%;
 }
 
 .comic-featured {
     position: relative;
-    /* 核心调整：上6rem（往下移更多）、左12rem（往右移更多），可按需微调 */
-    margin: 6rem auto 3rem 12rem;
+    margin: 6rem auto 3rem 12rem; /* 居中偏左布局 */
     cursor: pointer;
     max-width: 600px;
 }
@@ -137,44 +172,24 @@ body {
     max-width: 500px;
     height: auto;
     border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* 深色阴影，突出主体 */
     transition: transform 0.3s ease;
 }
 
 .comic-featured:hover .comic-featured-img {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /*  hover 上移，增强交互感 */
 }
 
+/* 隐藏漫画右上角文字信息 */
 .comic-info {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    max-width: 220px;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 1.2rem;
-    border-radius: 4px;
-    color: var(--text-light);
-    backdrop-filter: blur(5px);
+    display: none !important;
 }
 
-.comic-title {
-    font-size: 1.5rem;
-    margin-bottom: 0.8rem;
-    color: var(--morandi-pink);
-    font-weight: 400;
-}
-
-.comic-desc {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    opacity: 0.9;
-}
-
-/* 电影板块 */
+/* 电影板块样式 */
 .film-gallery {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 3rem; /* 上下间距 */
     padding: 2rem 0;
 }
 
@@ -184,14 +199,14 @@ body {
 }
 
 .film-item:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px); /*  hover 上移 */
 }
 
 .film-item img {
     width: 100%;
     height: auto;
     max-height: 500px;
-    object-fit: cover;
+    object-fit: cover; /* 保持图片比例，覆盖容器 */
     border-radius: 4px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -200,31 +215,31 @@ body {
     color: var(--text-light);
     font-size: 1.1rem;
     margin-top: 1rem;
-    text-align: center;
+    text-align: center; /* 标题居中 */
     opacity: 0.9;
 }
 
 .film-item a {
-    text-decoration: none;
+    text-decoration: none; /* 去掉链接下划线 */
 }
 
-/* 绘画/摄影瀑布流 */
+/* 绘画/摄影瀑布流布局 */
 .masonry-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-gap: 2rem;
-    grid-auto-flow: dense;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 自适应列数 */
+    grid-gap: 2rem; /* 网格间距 */
+    grid-auto-flow: dense; /* 自动填充空白 */
     padding: 2rem 0;
 }
 
 .masonry-item {
-    break-inside: avoid;
+    break-inside: avoid; /* 防止跨列/跨行 */
     margin-bottom: 2rem;
     transition: transform 0.3s ease;
 }
 
 .masonry-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /*  hover 上移 */
 }
 
 .masonry-item img {
@@ -233,38 +248,71 @@ body {
     display: block;
     border-radius: 4px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
+    cursor: pointer; /* 点击手势 */
     transition: filter 0.3s ease;
 }
 
 .masonry-item:hover img {
-    filter: brightness(1.1);
+    filter: brightness(1.05); /*  hover 亮度提升 */
 }
 
-/* 漫画阅读区：左右按键在两侧 */
+/* 记事本样式 */
+.notebook {
+    max-width: 1000px;
+    margin: 0 0 2rem 0;
+    color: var(--text-light);
+}
+
+.note {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 浅色分隔线 */
+}
+
+.note-date {
+    font-size: 0.8rem;
+    color: var(--morandi-pink); /* 粉色日期 */
+    margin-bottom: 0.3rem;
+}
+
+/* 关于我样式 */
+.profile {
+    max-width: 1000px;
+    margin: 0;
+    color: var(--text-light);
+}
+
+.profile h3 {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    font-weight: 400;
+    color: var(--morandi-blue); /* 蓝色标题 */
+}
+
+/* 漫画阅读区样式 */
 .comic-reader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.95);
-    z-index: 1000;
-    display: none;
+    background-color: rgba(0, 0, 0, 0.95); /* 深色背景，突出漫画 */
+    z-index: 1000; /* 最高层级，覆盖所有内容 */
+    display: none; /* 默认隐藏 */
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 2rem;
 }
 
 .comic-controls {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-light);
     width: 100%;
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 1rem;
+    color: var(--text-light);
 }
 
 .comic-page-info {
@@ -273,12 +321,11 @@ body {
 }
 
 .comic-back-btn {
-    margin-left: auto;
     background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* 透明边框 */
     color: var(--text-light);
     padding: 0.6rem 1.5rem;
-    border-radius: 24px;
+    border-radius: 24px; /* 圆角按钮 */
     cursor: pointer;
     font-size: 0.9rem;
     display: flex;
@@ -288,26 +335,25 @@ body {
 }
 
 .comic-back-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1); /*  hover 背景变浅 */
 }
 
 .comic-display {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: calc(100vh - 80px);
-    padding: 0 2rem;
     position: relative;
+    width: 100%;
+    height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .comic-btn {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.15); /* 半透明背景 */
     border: none;
     color: var(--text-light);
     width: 60px;
     height: 60px;
-    border-radius: 50%;
+    border-radius: 50%; /* 圆形按钮 */
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -321,62 +367,30 @@ body {
 }
 
 .prev-btn {
-    left: 2rem;
+    left: 2rem; /* 左按钮位置 */
 }
 
 .next-btn {
-    right: 2rem;
+    right: 2rem; /* 右按钮位置 */
 }
 
 .comic-btn:disabled {
-    opacity: 0.3;
+    opacity: 0.3; /* 禁用状态半透明 */
     cursor: default;
 }
 
 .comic-btn:not(:disabled):hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3); /*  hover 背景变深 */
 }
 
 .comic-page {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* 保持图片比例，完整显示 */
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5); /* 深色阴影 */
 }
 
-/* 记事本样式 */
-.notebook {
-    max-width: 1000px;
-    margin: 0 0 2rem 0;
-    color: var(--text-light);
-}
-
-.note {
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.note-date {
-    font-size: 0.8rem;
-    color: var(--morandi-pink);
-    margin-bottom: 0.3rem;
-}
-
-.profile {
-    max-width: 1000px;
-    margin: 0;
-    color: var(--text-light);
-}
-
-.profile h3 {
-    font-size: 1rem;
-    margin-bottom: 0.8rem;
-    font-weight: 400;
-    color: var(--morandi-blue);
-}
-
-/* 全屏查看弹窗 */
+/* 全屏查看弹窗样式 */
 .fullscreen-view {
     position: fixed;
     top: 0;
@@ -384,10 +398,10 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.95);
-    display: none;
+    z-index: 999; /* 层级低于漫画阅读区 */
+    display: none; /* 默认隐藏 */
     align-items: center;
     justify-content: center;
-    z-index: 999;
     padding: 2rem;
 }
 
@@ -405,16 +419,17 @@ body {
     font-size: 2rem;
     cursor: pointer;
     transition: transform 0.2s ease;
+    z-index: 10;
 }
 
 .close-fullscreen:hover {
-    transform: rotate(90deg);
+    transform: rotate(90deg); /*  hover 旋转 */
 }
 
-/* 响应式适配 */
+/* 响应式布局（适配移动端） */
 @media (max-width: 900px) {
     .main-container {
-        flex-direction: column;
+        flex-direction: column; /* 垂直排列 */
         gap: 2rem;
         padding: 1rem;
     }
@@ -423,16 +438,16 @@ body {
         flex: none;
         padding: 1.5rem;
         margin-bottom: 1rem;
+        align-items: center; /* 导航居中 */
     }
 
     .site-title {
         margin-bottom: 1.5rem;
-        text-align: center;
     }
 
     .project-list {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* 换行 */
         gap: 1.5rem;
         justify-content: center;
     }
@@ -447,21 +462,12 @@ body {
         margin-left: 0;
         max-width: 100%;
         max-height: none;
+        overflow-y: visible;
     }
 
     .comic-featured {
-        margin: 2rem auto; /* 手机端恢复居中 */
+        margin: 2rem auto; /* 完全居中 */
         max-width: 90%;
-    }
-
-    .comic-featured-img {
-        max-width: 100%;
-    }
-
-    .comic-info {
-        position: static;
-        max-width: 100%;
-        margin-top: 1.5rem;
     }
 
     .comic-btn {
@@ -475,18 +481,25 @@ body {
     }
 
     .masonry-gallery {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* 移动端列数调整 */
+        grid-gap: 1.5rem;
     }
 
     .comic-controls {
         flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
     }
 
     .comic-back-btn {
-        margin-left: 0;
         margin-top: 1rem;
-        width: 100%;
-        justify-content: center;
+    }
+
+    .cut-paper-container {
+        height: calc(100vh - 12rem);
+    }
+
+    .cut-paper-item {
+        width: 80%; /* 移动端剪纸宽度调整 */
     }
 }

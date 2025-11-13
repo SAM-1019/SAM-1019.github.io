@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 全屏背景：替换 url 中的路径为你的初始背景图路径 -->
+    <!-- 全屏背景 -->
     <div class="fullscreen-bg" style="background-image: url('images/beijing/initial.jpg');"></div>
 
     <!-- 主容器 -->
@@ -16,7 +16,7 @@
         <!-- 左侧导航区 -->
         <nav class="left-nav">
             <div class="site-title">
-                <h1>SΔM</h1>
+                <h1 id="site-logo">SΔM</h1>
             </div>
             
             <ul class="project-list">
@@ -28,14 +28,27 @@
             </ul>
         </nav>
 
-        <!-- 右侧内容区：已删除初始占位提示 -->
+        <!-- 右侧内容区 -->
         <div class="right-content">
-            <!-- 漫画内容：只留单本，删除“更多漫画” -->
+            <!-- 初始页：10张拼贴剪纸（支持大小+位置调整） -->
+            <div class="cut-paper-container">
+                <div class="cut-paper-item" data-index="0"><img src="images/cut-paper/1.png" alt="剪纸1" class="cut-paper-img"></div>
+                <div class="cut-paper-item" data-index="1"><img src="images/cut-paper/2.png" alt="剪纸2" class="cut-paper-img"></div>
+                <div class="cut-paper-item" data-index="2"><img src="images/cut-paper/3.png" alt="剪纸3" class="cut-paper-img"></div>
+                <div class="cut-paper-item" data-index="3"><img src="images/cut-paper/4.png" alt="剪纸4" class="cut-paper-img"></div>
+                <div class="cut-paper-item" data-index="4"><img src="images/cut-paper/5.png" alt="剪纸5" class="cut-paper-img"></div>
+                <div class="cut-paper-item" data-index="5"><img src="images/cut-paper/6.png" alt="剪纸6" class="cut-paper-img"></div>
+                <div class="cut-paper-item" data-index="6"><img src="images/cut-paper/7.png" alt="剪纸7" class="cut-paper-img"></div>
+                <div class="cut-paper-item" data-index="7"><img src="images/cut-paper/8.png" alt="剪纸8" class="cut-paper-img"></div>
+                <div class="cut-paper-item" data-index="8"><img src="images/cut-paper/9.png" alt="剪纸9" class="cut-paper-img"></div>
+                <div class="cut-paper-item" data-index="9"><img src="images/cut-paper/10.png" alt="剪纸10" class="cut-paper-img"></div>
+            </div>
+
+            <!-- 漫画内容 -->
             <div id="comic-content" class="content-wrapper">
                 <div class="comic-main">
-                    <!-- 主展示区：封面已设置往右下角移 -->
                     <div class="comic-featured">
-                        <img src="images/comic/fengmian.png" alt="当前漫画封面" class="comic-featured-img">
+                        <img src="images/comic/fengmian.png" alt="漫画封面" class="comic-featured-img">
                         <div class="comic-info">
                             <h2 class="comic-title">回忆</h2>
                             <p class="comic-desc">回到过去，记录回忆，那里有你需要的答案。</p>
@@ -47,117 +60,63 @@
             <!-- 绘画内容 -->
             <div id="painting-content" class="content-wrapper">
                 <div class="masonry-gallery">
-                    <div class="masonry-item">
-                        <img src="images/painting/work1.jpg" alt="绘画作品1" data-src="images/painting/work1.jpg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/painting/work2.jpg" alt="绘画作品2" data-src="images/painting/work2.jpg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/painting/work11.jpg" alt="绘画作品3" data-src="images/painting/work11.jpg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/painting/work4.jpg" alt="绘画作品4" data-src="images/painting/work4.jpg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/painting/work5.jpg" alt="绘画作品5" data-src="images/painting/work5.jpg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/painting/work6.jpg" alt="绘画作品6" data-src="images/painting/work6.jpg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/painting/work7.jpg" alt="绘画作品7" data-src="images/painting/work7.jpg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/painting/work8.jpg" alt="绘画作品8" data-src="images/painting/work8.jpg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/painting/work9.jpg" alt="绘画作品9" data-src="images/painting/work9.jpg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/painting/work10.jpg" alt="绘画作品10" data-src="images/painting/work10.jpg">
-                    </div>
+                    <div class="masonry-item"><img src="images/painting/work1.jpg" alt="绘画1" data-src="images/painting/work1.jpg"></div>
+                    <div class="masonry-item"><img src="images/painting/work2.jpg" alt="绘画2" data-src="images/painting/work2.jpg"></div>
+                    <div class="masonry-item"><img src="images/painting/work3.jpg" alt="绘画3" data-src="images/painting/work3.jpg"></div>
+                    <div class="masonry-item"><img src="images/painting/work4.jpg" alt="绘画4" data-src="images/painting/work4.jpg"></div>
+                    <div class="masonry-item"><img src="images/painting/work5.jpg" alt="绘画5" data-src="images/painting/work5.jpg"></div>
+                    <div class="masonry-item"><img src="images/painting/work6.jpg" alt="绘画6" data-src="images/painting/work6.jpg"></div>
+                    <div class="masonry-item"><img src="images/painting/work7.jpg" alt="绘画7" data-src="images/painting/work7.jpg"></div>
+                    <div class="masonry-item"><img src="images/painting/work8.jpg" alt="绘画8" data-src="images/painting/work8.jpg"></div>
+                    <div class="masonry-item"><img src="images/painting/work9.jpg" alt="绘画9" data-src="images/painting/work9.jpg"></div>
+                    <div class="masonry-item"><img src="images/painting/work10.jpg" alt="绘画10" data-src="images/painting/work10.jpg"></div>
+                    <div class="masonry-item"><img src="images/painting/work11.jpg" alt="绘画11" data-src="images/painting/work11.jpg"></div>
                 </div>
             </div>
 
             <!-- 摄影内容 -->
             <div id="photography-content" class="content-wrapper">
                 <div class="masonry-gallery">
-                    <div class="masonry-item">
-                        <img src="images/photography/work1.jpeg" alt="摄影作品1" data-src="images/photography/work1.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work2.jpeg" alt="摄影作品2" data-src="images/photography/work2.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work3.jpeg" alt="摄影作品3" data-src="images/photography/work3.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work4.jpeg" alt="摄影作品4" data-src="images/photography/work4.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work5.jpeg" alt="摄影作品5" data-src="images/photography/work5.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work6.jpeg" alt="摄影作品6" data-src="images/photography/work6.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work7.jpeg" alt="摄影作品7" data-src="images/photography/work7.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work8.jpeg" alt="摄影作品8" data-src="images/photography/work8.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work9.jpeg" alt="摄影作品9" data-src="images/photography/work9.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work2.jpeg" alt="摄影作品10" data-src="images/photography/work10.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work11.jpeg" alt="摄影作品3" data-src="images/photography/work11.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work12.jpeg" alt="摄影作品4" data-src="images/photography/work12.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work13.jpeg" alt="摄影作品5" data-src="images/photography/work13.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work14.jpeg" alt="摄影作品6" data-src="images/photography/work14.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work15.jpeg" alt="摄影作品7" data-src="images/photography/work15.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work16.jpeg" alt="摄影作品8" data-src="images/photography/work16.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work17.jpeg" alt="摄影作品9" data-src="images/photography/work17.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work18.jpeg" alt="摄影作品2" data-src="images/photography/work18.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work19.jpeg" alt="摄影作品3" data-src="images/photography/work19.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work20.jpeg" alt="摄影作品4" data-src="images/photography/work20.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work21.jpeg" alt="摄影作品5" data-src="images/photography/work21.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work22.jpeg" alt="摄影作品6" data-src="images/photography/work22.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work23.jpeg" alt="摄影作品7" data-src="images/photography/work23.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work24.jpeg" alt="摄影作品8" data-src="images/photography/work24.jpeg">
-                    </div>
-                    <div class="masonry-item">
-                        <img src="images/photography/work25.jpeg" alt="摄影作品9" data-src="images/photography/work25.jpeg">
-                    </div>
+                    <div class="masonry-item"><img src="images/photography/work1.jpeg" alt="摄影1" data-src="images/photography/work1.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work2.jpeg" alt="摄影2" data-src="images/photography/work2.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work3.jpeg" alt="摄影3" data-src="images/photography/work3.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work4.jpeg" alt="摄影4" data-src="images/photography/work4.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work5.jpeg" alt="摄影5" data-src="images/photography/work5.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work6.jpeg" alt="摄影6" data-src="images/photography/work6.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work7.jpeg" alt="摄影7" data-src="images/photography/work7.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work8.jpeg" alt="摄影8" data-src="images/photography/work8.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work9.jpeg" alt="摄影9" data-src="images/photography/work9.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work10.jpeg" alt="摄影10" data-src="images/photography/work10.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work11.jpeg" alt="摄影11" data-src="images/photography/work11.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work12.jpeg" alt="摄影12" data-src="images/photography/work12.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work13.jpeg" alt="摄影13" data-src="images/photography/work13.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work14.jpeg" alt="摄影14" data-src="images/photography/work14.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work15.jpeg" alt="摄影15" data-src="images/photography/work15.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work16.jpeg" alt="摄影16" data-src="images/photography/work16.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work17.jpeg" alt="摄影17" data-src="images/photography/work17.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work18.jpeg" alt="摄影18" data-src="images/photography/work18.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work19.jpeg" alt="摄影19" data-src="images/photography/work19.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work20.jpeg" alt="摄影20" data-src="images/photography/work20.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work21.jpeg" alt="摄影21" data-src="images/photography/work21.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work22.jpeg" alt="摄影22" data-src="images/photography/work22.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work23.jpeg" alt="摄影23" data-src="images/photography/work23.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work24.jpeg" alt="摄影24" data-src="images/photography/work24.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work25.jpeg" alt="摄影25" data-src="images/photography/work25.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work26.jpeg" alt="摄影26" data-src="images/photography/work26.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work27.jpeg" alt="摄影27" data-src="images/photography/work27.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work28.jpeg" alt="摄影28" data-src="images/photography/work28.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work29.jpeg" alt="摄影29" data-src="images/photography/work29.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work30.jpeg" alt="摄影30" data-src="images/photography/work30.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work31.jpeg" alt="摄影31" data-src="images/photography/work31.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work32.jpeg" alt="摄影32" data-src="images/photography/work32.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work33.jpeg" alt="摄影33" data-src="images/photography/work33.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work34.jpeg" alt="摄影34" data-src="images/photography/work34.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work35.jpeg" alt="摄影35" data-src="images/photography/work35.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work36.jpeg" alt="摄影36" data-src="images/photography/work36.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work37.jpeg" alt="摄影37" data-src="images/photography/work37.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work38.jpeg" alt="摄影38" data-src="images/photography/work38.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work39.jpeg" alt="摄影39" data-src="images/photography/work39.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work40.jpeg" alt="摄影40" data-src="images/photography/work40.jpeg"></div>
                 </div>
             </div>
 
@@ -165,27 +124,27 @@
             <div id="film-content" class="content-wrapper">
                 <div class="film-gallery">
                     <div class="film-item">
-                        <a href="https://t.bilibili.com/370978307003107568?share_source=pc_native" target="_blank">
-                            <img src="images/flim/work1.jpg" alt="电影海报1">
-                            <div class="film-title">HOME</div>
+                        <a href="https://www.bilibili.com/video/BV1CR4y1o7X9/" target="_blank">
+                            <img src="images/flim/work1.jpg" alt="电影1">
+                            <div class="film-title">Live in the present</div>
                         </a>
                     </div>
                     <div class="film-item">
-                        <a href="https://t.bilibili.com/371588729226417088?share_source=pc_native" target="_blank">
-                            <img src="images/flim/work3.jpg" alt="电影海报2">
-                            <div class="film-title">HOME2</div>
+                        <a href="https://www.bilibili.com/video/BV1zP4y1z7Y4/" target="_blank">
+                            <img src="images/flim/work2.jpg" alt="电影2">
+                            <div class="film-title">HOME（new year）</div>
                         </a>
                     </div>
                     <div class="film-item">
-                        <a href="https://t.bilibili.com/371199141333312602?share_source=pc_native" target="_blank">
-                            <img src="images/flim/work4.jpg" alt="电影海报3">
-                            <div class="film-title">阿公</div>
+                        <a href="https://www.bilibili.com/video/BV1jakyBtEyh/" target="_blank">
+                            <img src="images/flim/work3.jpg" alt="电影3">
+                            <div class="film-title">2024</div>
                         </a>
                     </div>
                     <div class="film-item">
-                        <a href="https://t.bilibili.com/371369960774596074?share_source=pc_native" target="_blank">
-                            <img src="images/flim/work2.jpg" alt="电影海报4">
-                            <div class="film-title">阿公2</div>
+                        <a href="https://www.bilibili.com/video/BV1iakyBtEXi/" target="_blank">
+                            <img src="images/flim/work4.jpg" alt="电影4">
+                            <div class="film-title">2025</div>
                         </a>
                     </div>
                 </div>
@@ -194,28 +153,20 @@
             <!-- 世界内容 -->
             <div id="world-content" class="content-wrapper">
                 <div class="notebook">
-                    <div class="note">
-                        <div class="note-date">2025.12.01</div>
-                        <p>一切都会好起来的。</p>
-                    </div>
-                    <div class="note">
-                        <div class="note-date">2025.11.20</div>
-                        <p>新漫画马上就要发布啦</p>
-                    </div>
-                    <div class="note">
-                        <div class="note-date">2025.11.10</div>
-                        <p>给自己捣鼓出来了，第一次有了自己的个人网站。</p>
-                    </div>
+                    <div class="note"><div class="note-date">2025.11.13</div><p>新漫画上线啦。</p></div>
+                </div>
+                <div class="notebook">
+                    <div class="note"><div class="note-date">2025.11.10</div><p>终于做了自己的个人网站。</p></div>
                 </div>
                 <div class="profile">
                     <h3>关于我</h3>
-                    <p>一个热爱生活的创作者，用漫画、绘画、摄影和电影记录世界的美好。喜欢探索不同的艺术表达方式，尤其偏爱简约而富有内涵的风格。</p>
+                    <p>人生是体验 感受 创造。</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 漫画全屏阅读区：左右按键在两侧 -->
+    <!-- 漫画阅读区 -->
     <div id="comic-reader" class="comic-reader">
         <div class="comic-controls">
             <span class="comic-page-info">第 1 / 8 页</span>
@@ -228,68 +179,36 @@
         </div>
     </div>
 
-    <!-- 绘画/摄影全屏查看弹窗 -->
+    <!-- 全屏查看弹窗 -->
     <div id="fullscreen-view" class="fullscreen-view">
         <span class="close-fullscreen">&times;</span>
         <img src="" alt="全屏作品" class="fullscreen-img">
     </div>
 
     <script>
-        // 项目配置：替换 cursor 中的路径为你的鼠标光标图片路径
+        // 项目配置
         const projects = [
-            {
-                id: 'comic',
-                bgImage: 'images/beijing/01.jpg',
-                cursor: 'url("images/cursor/comic-cursor.png"), auto' // 漫画板块鼠标光标
-            },
-            {
-                id: 'painting',
-                bgImage: 'images/beijing/02.jpg',
-                cursor: 'url("images/cursor/paint-cursor.png"), auto' // 绘画板块鼠标光标
-            },
-            {
-                id: 'photography',
-                bgImage: 'images/beijing/03.jpg',
-                cursor: 'url("images/cursor/photo-cursor.png"), auto' // 摄影板块鼠标光标
-            },
-            {
-                id: 'film',
-                bgImage: 'images/beijing/04.jpg',
-                cursor: 'url("images/cursor/film-cursor.png"), auto' // 电影板块鼠标光标
-            },
-            {
-                id: 'world',
-                bgImage: 'images/beijing/05.jpg',
-                cursor: 'url("images/cursor/world-cursor.png"), auto' // 世界板块鼠标光标
-            }
+            { id: 'comic', bgImage: 'images/beijing/01.jpg', cursor: 'url("images/cursor/comic-cursor.png"), auto' },
+            { id: 'painting', bgImage: 'images/beijing/02.jpg', cursor: 'url("images/cursor/paint-cursor.png"), auto' },
+            { id: 'photography', bgImage: 'images/beijing/03.jpg', cursor: 'url("images/cursor/photo-cursor.png"), auto' },
+            { id: 'film', bgImage: 'images/beijing/04.jpg', cursor: 'url("images/cursor/film-cursor.png"), auto' },
+            { id: 'world', bgImage: 'images/beijing/05.jpg', cursor: 'url("images/cursor/world-cursor.png"), auto' }
         ];
 
-        // 单本漫画内页数据
+        // 漫画数据
         const comicsData = {
             1: [
-                'images/comic/neiye1.png',
-                'images/comic/neiye2.png',
-                'images/comic/neiye3.png',
-                'images/comic/neiye4.png',
-                'images/comic/neiye5.png',
-                'images/comic/neiye6.png',
-                'images/comic/neiye7.png',
-                'images/comic/neiye8.png',
-                'images/comic/neiye9.png',
-                'images/comic/neiye10.png',
-                'images/comic/neiye11.png',
-                'images/comic/neiye12.png',
-                'images/comic/neiye13.png',
-                'images/comic/neiye14.png',
-                'images/comic/neiye15.png',
-                'images/comic/neiye16.png'
+                'images/comic/neiye0.png','images/comic/neiye1.png', 'images/comic/neiye2.png', 'images/comic/neiye3.png', 'images/comic/neiye4.png',
+                'images/comic/neiye5.png', 'images/comic/neiye6.png', 'images/comic/neiye7.png', 'images/comic/neiye8.png',
+                'images/comic/neiye9.png', 'images/comic/neiye10.png', 'images/comic/neiye11.png', 'images/comic/neiye12.png',
+                'images/comic/neiye13.png', 'images/comic/neiye14.png', 'images/comic/neiye15.png', 'images/comic/neiye16.png',
+                'images/comic/neiye17.png', 'images/comic/neiye18.png', 'images/comic/neiye19.png', 'images/comic/neiye20.png',
+                'images/comic/neiye21.png', 'images/comic/neiye22.png', 'images/comic/neiye23.png', 'images/comic/neiye24.png',
+                'images/comic/neiye25.png', 'images/comic/neiye26.png', 'images/comic/neiye27.png', 'images/comic/neiye28.png',
+                'images/comic/neiye29.png', 'images/comic/neiye30.png', 
+                
             ]
         };
-
-        // 漫画状态变量
-        let currentComicId = '1';
-        let currentPage = 0;
-        let currentComicPages = [];
 
         // DOM元素获取
         const bgElement = document.querySelector('.fullscreen-bg');
@@ -306,38 +225,148 @@
         const fullscreenImg = document.querySelector('.fullscreen-img');
         const closeFullscreen = document.querySelector('.close-fullscreen');
         const galleryImages = document.querySelectorAll('.masonry-item img');
+        const cutPaperContainer = document.querySelector('.cut-paper-container');
+        const siteLogo = document.getElementById('site-logo');
 
-        // 项目切换（背景+鼠标+内容）
+        // 1. 点击标题返回初始页
+        siteLogo.addEventListener('click', () => {
+            contentWrappers.forEach(w => w.classList.remove('active'));
+            cutPaperContainer.style.display = 'block';
+            bgElement.style.backgroundImage = 'url("images/beijing/initial.jpg")';
+            projectItems.forEach(i => i.classList.remove('active'));
+            document.body.style.cursor = 'default';
+            comicReader.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // 2. 项目切换
         projectItems.forEach(item => {
             item.addEventListener('click', () => {
-                const projectId = item.getAttribute('data-project');
-                const project = projects.find(p => p.id === projectId);
-                
+                const project = projects.find(p => p.id === item.dataset.project);
                 if (project) {
-                    // 关闭漫画阅读区
+                    cutPaperContainer.style.display = 'none';
                     comicReader.style.display = 'none';
                     document.body.style.overflow = 'auto';
-                    // 切换背景和鼠标
                     bgElement.style.backgroundImage = `url('${project.bgImage}')`;
                     document.body.style.cursor = project.cursor;
-                    
-                    // 切换导航选中状态
                     projectItems.forEach(i => i.classList.remove('active'));
                     item.classList.add('active');
-                    
-                    // 切换内容显示
-                    contentWrappers.forEach(wrapper => {
-                        wrapper.classList.remove('active');
-                        if (wrapper.id === `${projectId}-content`) wrapper.classList.add('active');
-                    });
+                    contentWrappers.forEach(w => w.classList.remove('active'));
+                    document.getElementById(`${project.id}-content`).classList.add('active');
                 }
             });
         });
 
-        // 点击漫画封面打开阅读
+        // 3. 剪纸交互（支持位置、大小、旋转、层级调整）
+        const cutPaperItems = document.querySelectorAll('.cut-paper-item');
+        cutPaperItems.forEach((item, index) => {
+            let initX, initY, initRotate, zIndex, width;
+            // 每张剪纸的独立配置（可按需修改）
+            switch(parseInt(item.dataset.index)) {
+                case 0: // 第1张剪纸
+                    initX = -250;    // 左右位置（负值左移，正值右移）
+                    initY = -280;    // 上下位置（负值上移，正值下移）
+                    initRotate = 0;  // 旋转角度（负值逆时针，正值顺时针）
+                    zIndex = 2;      // 叠放层级（数值越大越靠上）
+                    width = '8%';   // 宽度（支持百分比或像素值，如'150px'）
+                    break;
+                case 1: // 第2张剪纸
+                    initX = -160;
+                    initY = -210;
+                    initRotate = 5;
+                    zIndex = 5;
+                    width = '10%';
+                    break;
+                case 2: // 第3张剪纸
+                    initX = -40;
+                    initY = -260;
+                    initRotate = -3;
+                    zIndex = 6;
+                    width = '14%';
+                    break;
+                case 3: // 第4张剪纸
+                    initX = -190;
+                    initY = 130;
+                    initRotate = 8;
+                    zIndex = 4;
+                    width = '15%';
+                    break;
+                case 4: // 第5张剪纸
+                    initX = 40;
+                    initY = 50;
+                    initRotate = -5;
+                    zIndex = 7;
+                    width = '27%';
+                    break;
+                case 5: // 第6张剪纸
+                    initX = 220;
+                    initY = 120;
+                    initRotate = 10;
+                    zIndex = 4;
+                    width = '29%';
+                    break;
+                case 6: // 第7张剪纸
+                    initX = 220;
+                    initY = -40;
+                    initRotate = -8;
+                    zIndex = 3;
+                    width = '16%';
+                    break;
+                case 7: // 第8张剪纸
+                    initX = -190;
+                    initY = -40;
+                    initRotate = -9;
+                    zIndex = 1;
+                    width = '40%';
+                    break;
+                case 8: // 第9张剪纸
+                    initX = 130;
+                    initY = -110;
+                    initRotate = -3;
+                    zIndex = 2;
+                    width = '32%';
+                    break;
+                case 9: // 第10张剪纸
+                    initX = 220;
+                    initY = -210;
+                    initRotate = -10;
+                    zIndex = 1;
+                    width = '23%';
+                    break;
+                default: // 默认配置（未匹配到的剪纸）
+                    initX = 0;
+                    initY = 0;
+                    initRotate = 0;
+                    zIndex = 0;
+                    width = '25%';
+            }
+            // 应用配置
+            item.style.transform = `translate(-50%, -50%) translate(${initX}px, ${initY}px) rotate(${initRotate}deg)`;
+            item.style.zIndex = zIndex;
+            item.style.width = width;
+
+            // 鼠标悬浮交互动画
+            item.addEventListener('mouseenter', () => {
+                const moveX = Math.random() * 30 - 15; // 随机左右偏移
+                const moveY = Math.random() * 30 - 15; // 随机上下偏移
+                const rotate = Math.random() * 10 - 5; // 随机旋转
+                item.style.transform = `translate(-50%, -50%) translate(${moveX}px, ${moveY}px) rotate(${rotate}deg)`;
+                item.style.filter = 'brightness(1.1)'; // 亮度提升
+            });
+            item.addEventListener('mouseleave', () => {
+                // 恢复初始状态
+                item.style.transform = `translate(-50%, -50%) translate(${initX}px, ${initY}px) rotate(${initRotate}deg)`;
+                item.style.filter = 'brightness(1)';
+            });
+        });
+
+        // 4. 漫画阅读功能
+        let currentComicId = '1';
+        let currentPage = 0;
+        let currentComicPages = [];
+
         comicFeaturedImg.addEventListener('click', () => openComicReader(currentComicId));
 
-        // 打开漫画阅读
         function openComicReader(id) {
             currentComicPages = comicsData[id] || [];
             currentPage = 0;
@@ -346,55 +375,44 @@
             loadComicPage();
         }
 
-        // 加载漫画页
         function loadComicPage() {
             if (currentComicPages.length === 0) return;
-            comicPage.setAttribute('src', currentComicPages[currentPage]);
+            comicPage.src = currentComicPages[currentPage];
             pageInfo.textContent = `第 ${currentPage + 1} / ${currentComicPages.length} 页`;
-            prevBtn.disabled = currentPage === 0;
-            nextBtn.disabled = currentPage === currentComicPages.length - 1;
+            prevBtn.disabled = currentPage === 0; // 第一页禁用上一页
+            nextBtn.disabled = currentPage === currentComicPages.length - 1; // 最后一页禁用下一页
         }
 
-        // 翻页控制
-        prevBtn.addEventListener('click', () => {
-            if (currentPage > 0) { currentPage--; loadComicPage(); }
-        });
-        nextBtn.addEventListener('click', () => {
-            if (currentPage < currentComicPages.length - 1) { currentPage++; loadComicPage(); }
-        });
-
+        // 漫画翻页
+        prevBtn.addEventListener('click', () => { if (currentPage > 0) { currentPage--; loadComicPage(); } });
+        nextBtn.addEventListener('click', () => { if (currentPage < currentComicPages.length - 1) { currentPage++; loadComicPage(); } });
         // 关闭漫画阅读
-        backBtn.addEventListener('click', () => {
-            comicReader.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        // 键盘控制翻页/关闭
+        backBtn.addEventListener('click', () => { comicReader.style.display = 'none'; document.body.style.overflow = 'auto'; });
+        // 键盘左右箭头翻页
         document.addEventListener('keydown', (e) => {
             if (comicReader.style.display !== 'none') {
                 if (e.key === 'ArrowLeft' && currentPage > 0) currentPage--;
                 else if (e.key === 'ArrowRight' && currentPage < currentComicPages.length - 1) currentPage++;
-                else if (e.key === 'Escape') {
-                    comicReader.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                    return;
-                }
+                else if (e.key === 'Escape') { comicReader.style.display = 'none'; document.body.style.overflow = 'auto'; return; }
                 loadComicPage();
             }
         });
 
-        // 绘画/摄影全屏查看
+        // 5. 作品全屏查看功能
         galleryImages.forEach(img => {
             img.addEventListener('click', () => {
-                fullscreenImg.setAttribute('src', img.getAttribute('data-src') || img.getAttribute('src'));
+                fullscreenImg.src = img.dataset.src || img.src;
                 fullscreenView.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
             });
         });
+
+        // 关闭全屏查看
         closeFullscreen.addEventListener('click', () => {
             fullscreenView.style.display = 'none';
             document.body.style.overflow = 'auto';
         });
+        // 点击空白处关闭全屏
         fullscreenView.addEventListener('click', (e) => {
             if (e.target === fullscreenView) {
                 fullscreenView.style.display = 'none';
