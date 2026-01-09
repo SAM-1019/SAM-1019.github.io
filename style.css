@@ -172,7 +172,7 @@ body {
     max-width: 500px;
     height: auto;
     border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* 深色阴影，突出主体 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0); /* 深色阴影，突出主体 */
     transition: transform 0.3s ease;
 }
 
@@ -195,7 +195,14 @@ body {
 
 .film-item {
     width: 100%;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.6s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.film-item.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .film-item:hover {
@@ -235,7 +242,14 @@ body {
 .masonry-item {
     break-inside: avoid; /* 防止跨列/跨行 */
     margin-bottom: 2rem;
-    transition: transform 0.3s ease;
+    transition: all 0.6s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.masonry-item.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .masonry-item:hover {
@@ -289,6 +303,66 @@ body {
     color: var(--morandi-blue); /* 蓝色标题 */
 }
 
+/* 漫画目录样式 */
+.comic-directory {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+}
+
+.comic-dir-title {
+    color: var(--text-light);
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.comic-chapter-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.comic-chapter-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.comic-chapter-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.comic-dir-close {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    color: var(--text-light);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.comic-dir-close:hover {
+    transform: rotate(90deg);
+}
+
 /* 漫画阅读区样式 */
 .comic-reader {
     position: fixed;
@@ -310,7 +384,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin-bottom: 1rem;
     color: var(--text-light);
 }
@@ -347,6 +421,63 @@ body {
     justify-content: center;
 }
 
+/* 左右双图无缝拼合样式 - 核心无阴影修改 */
+.comic-page-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 0 !important; /* 强制去掉中间间隙 */
+    padding: 0;
+    margin: 0;
+}
+
+.comic-page-left, .comic-page-right {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important; /* 强制无内边距 */
+    margin: 0 !important; /* 强制无外边距 */
+    position: relative;
+}
+
+/* 核心修改：彻底移除中间阴影 */
+.comic-page {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* 保持图片比例，完整显示 */
+    display: block !important; /* 强制去掉图片默认行高间隙 */
+    border: 0;
+    outline: 0;
+}
+
+/* 左图：仅左侧、顶部、底部有阴影，右侧完全无阴影 */
+.comic-page-left .comic-page {
+    box-shadow: 
+        -12px 0 30px -10px rgba(0, 0, 0, 0.4),  /* 左侧阴影 */
+        0 12px 30px -10px rgba(0, 0, 0, 0.3),  /* 顶部阴影 */
+        0 -12px 30px -10px rgba(0, 0, 0, 0.3); /* 底部阴影 */
+    /* 右侧完全无阴影 */
+}
+
+/* 右图：仅右侧、顶部、底部有阴影，左侧完全无阴影 */
+.comic-page-right .comic-page {
+    box-shadow: 
+        12px 0 30px -10px rgba(0, 0, 0, 0.4),   /* 右侧阴影 */
+        0 12px 30px -10px rgba(0, 0, 0, 0.3),  /* 顶部阴影 */
+        0 -12px 30px -10px rgba(0, 0, 0, 0.3); /* 底部阴影 */
+    /* 左侧完全无阴影 */
+}
+
+/* 单图时显示完整阴影 */
+.comic-page-left:only-child .comic-page,
+.comic-page-right:only-child .comic-page {
+    box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.5); /* 完整均匀阴影 */
+}
+
 .comic-btn {
     background-color: rgba(255, 255, 255, 0.15); /* 半透明背景 */
     border: none;
@@ -381,13 +512,6 @@ body {
 
 .comic-btn:not(:disabled):hover {
     background-color: rgba(255, 255, 255, 0.3); /*  hover 背景变深 */
-}
-
-.comic-page {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain; /* 保持图片比例，完整显示 */
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5); /* 深色阴影 */
 }
 
 /* 全屏查看弹窗样式 */
@@ -476,6 +600,24 @@ body {
         font-size: 1.2rem;
     }
 
+    /* 移动端单图显示 - 无中间阴影 */
+    .comic-page-container {
+        flex-direction: row; /* 恢复默认行排列 */
+        width: 90%; /* 限制宽度，适配移动端 */
+    }
+    /* 移动端只显示一个图片容器，隐藏另一个 */
+    .mobile-single .comic-page-left {
+        flex: none;
+        width: 100%;
+    }
+    .mobile-single .comic-page-right {
+        display: none;
+    }
+    /* 移动端单图显示完整阴影 */
+    .mobile-single .comic-page {
+        box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.5) !important;
+    }
+
     .film-gallery {
         gap: 2rem;
     }
@@ -501,5 +643,9 @@ body {
 
     .cut-paper-item {
         width: 80%; /* 移动端剪纸宽度调整 */
+    }
+
+    .comic-chapter-list {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 }
