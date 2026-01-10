@@ -42,7 +42,7 @@
             background-position: center;
             z-index: -1;
             transition: background-image 1s ease-in-out;
-            filter: brightness(0.75); /* 降低亮度，提升文字可读性 */
+            filter: brightness(0.75);
         }
 
         /* 主容器布局 */
@@ -55,13 +55,13 @@
 
         /* 左侧导航栏样式 */
         .left-nav {
-            flex: 0 0 180px; /* 固定宽度，不伸缩 */
+            flex: 0 0 180px;
             padding: 3.5rem 0 2rem 2.5rem;
             display: flex;
             flex-direction: column;
             color: var(--text-light);
             position: relative;
-            z-index: 2; /* 确保导航在背景之上 */
+            z-index: 2;
         }
 
         .site-title {
@@ -77,12 +77,12 @@
         }
 
         #site-logo:hover {
-            transform: scale(1.05); /*  hover 放大效果 */
-            color: var(--morandi-pink); /* 变色 */
+            transform: scale(1.05);
+            color: var(--morandi-pink);
         }
 
         .project-list {
-            list-style: none; /* 去掉列表默认圆点 */
+            list-style: none;
         }
 
         .project-item {
@@ -91,12 +91,12 @@
             transition: transform 0.2s ease, opacity 0.2s ease;
             padding-left: 0;
             font-size: 0.9rem;
-            opacity: 0.8; /* 默认半透明 */
+            opacity: 0.8;
         }
 
         .project-item:hover {
-            transform: translateX(3px); /* 轻微右移 */
-            opacity: 1; /* 完全不透明 */
+            transform: translateX(3px);
+            opacity: 1;
         }
 
         .project-item.active {
@@ -106,34 +106,32 @@
 
         /* 右侧内容区域样式 */
         .right-content {
-            flex: 1; /* 占满剩余空间 */
+            flex: 1;
             padding: 2rem 4rem 2rem 0;
-            margin-left: 15%; /* 左侧留白，提升布局美感 */
+            margin-left: 15%;
             display: block;
             position: relative;
             z-index: 2;
             max-width: calc(100% - 150px);
-            overflow-y: auto; /* 内容超出时滚动 */
+            overflow-y: auto;
             max-height: calc(100vh - 4rem);
-            scroll-behavior: smooth; /* 平滑滚动 */
         }
 
         /* 内容容器通用样式 */
         .content-wrapper {
             width: 100%;
-            max-width: 1400px; /* 限制最大宽度，避免太宽 */
+            max-width: 1400px;
             padding: 1rem 0;
-            display: none; /* 默认隐藏，通过JS控制显示 */
+            display: none;
         }
 
-        /* 内容显示时的淡入动画 */
         .content-wrapper.active {
             display: block;
             animation: fadeIn 0.5s ease-in-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); } /* 从下淡入 */
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -144,24 +142,25 @@
             height: calc(100vh - 8rem);
             display: block;
             margin-top: 2rem;
+            z-index: 1;
         }
 
-        /* 单张剪纸样式（支持大小调整） */
+        /* 单张剪纸样式 */
         .cut-paper-item {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 25%; /* 默认宽度（可通过JS单独覆盖） */
-            max-width: none; /* 取消最大宽度限制，优先使用width */
-            height: auto; /* 高度自动，保持宽高比 */
-            transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); /* 平滑过渡动画 */
-            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2)); /* 阴影效果，提升层次感 */
+            width: 25%;
+            max-width: none;
+            height: auto;
+            transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
         }
 
         .cut-paper-img {
             width: 100%;
             height: auto;
-            border-radius: 2px; /* 轻微圆角，模拟剪纸质感 */
+            border-radius: 2px;
         }
 
         /* 漫画板块样式 */
@@ -171,7 +170,7 @@
 
         .comic-featured {
             position: relative;
-            margin: 6rem auto 3rem 12rem; /* 居中偏左布局 */
+            margin: 6rem auto 3rem 12rem;
             cursor: pointer;
             max-width: 600px;
         }
@@ -181,24 +180,23 @@
             max-width: 500px;
             height: auto;
             border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0); /* 深色阴影，突出主体 */
+            box-shadow: none !important;
             transition: transform 0.3s ease;
         }
 
         .comic-featured:hover .comic-featured-img {
-            transform: translateY(-5px); /*  hover 上移，增强交互感 */
+            transform: translateY(-5px);
         }
 
-        /* 隐藏漫画右上角文字信息 */
         .comic-info {
-            display: none !important;
+            display: none;
         }
 
         /* 电影板块样式 */
         .film-gallery {
             display: flex;
             flex-direction: column;
-            gap: 3rem; /* 上下间距 */
+            gap: 3rem;
             padding: 2rem 0;
         }
 
@@ -215,14 +213,14 @@
         }
 
         .film-item:hover {
-            transform: translateY(-8px); /*  hover 上移 */
+            transform: translateY(-8px);
         }
 
         .film-item img {
             width: 100%;
             height: auto;
             max-height: 500px;
-            object-fit: cover; /* 保持图片比例，覆盖容器 */
+            object-fit: cover;
             border-radius: 4px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
@@ -231,25 +229,25 @@
             color: var(--text-light);
             font-size: 1.1rem;
             margin-top: 1rem;
-            text-align: center; /* 标题居中 */
+            text-align: center;
             opacity: 0.9;
         }
 
         .film-item a {
-            text-decoration: none; /* 去掉链接下划线 */
+            text-decoration: none;
         }
 
         /* 绘画/摄影瀑布流布局 */
         .masonry-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 自适应列数 */
-            grid-gap: 2rem; /* 网格间距 */
-            grid-auto-flow: dense; /* 自动填充空白 */
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-gap: 2rem;
+            grid-auto-flow: dense;
             padding: 2rem 0;
         }
 
         .masonry-item {
-            break-inside: avoid; /* 防止跨列/跨行 */
+            break-inside: avoid;
             margin-bottom: 2rem;
             transition: all 0.6s ease;
             opacity: 0;
@@ -262,7 +260,7 @@
         }
 
         .masonry-item:hover {
-            transform: translateY(-5px); /*  hover 上移 */
+            transform: translateY(-5px);
         }
 
         .masonry-item img {
@@ -271,12 +269,12 @@
             display: block;
             border-radius: 4px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            cursor: pointer; /* 点击手势 */
+            cursor: pointer;
             transition: filter 0.3s ease;
         }
 
         .masonry-item:hover img {
-            filter: brightness(1.05); /*  hover 亮度提升 */
+            filter: brightness(1.05);
         }
 
         /* 记事本样式 */
@@ -289,12 +287,12 @@
         .note {
             margin-bottom: 2rem;
             padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 浅色分隔线 */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .note-date {
             font-size: 0.8rem;
-            color: var(--morandi-pink); /* 粉色日期 */
+            color: var(--morandi-pink);
             margin-bottom: 0.3rem;
         }
 
@@ -309,7 +307,7 @@
             font-size: 1rem;
             margin-bottom: 0.8rem;
             font-weight: 400;
-            color: var(--morandi-blue); /* 蓝色标题 */
+            color: var(--morandi-blue);
         }
 
         /* 漫画目录样式 */
@@ -326,6 +324,7 @@
             align-items: center;
             justify-content: center;
             padding: 4rem 2rem;
+            box-shadow: none !important;
         }
 
         .comic-dir-title {
@@ -351,6 +350,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
+            box-shadow: none !important;
         }
 
         .comic-chapter-item:hover {
@@ -366,6 +366,7 @@
             font-size: 2rem;
             cursor: pointer;
             transition: transform 0.2s ease;
+            box-shadow: none !important;
         }
 
         .comic-dir-close:hover {
@@ -379,13 +380,14 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: rgba(0, 0, 0, 0.95); /* 深色背景，突出漫画 */
-            z-index: 1000; /* 最高层级，覆盖所有内容 */
-            display: none; /* 默认隐藏 */
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            display: none;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 2rem;
+            box-shadow: none !important;
         }
 
         .comic-controls {
@@ -396,29 +398,32 @@
             max-width: 1400px;
             margin-bottom: 1rem;
             color: var(--text-light);
+            box-shadow: none !important;
         }
 
         .comic-page-info {
             font-size: 1rem;
             opacity: 0.8;
+            box-shadow: none !important;
         }
 
         .comic-back-btn {
             background-color: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.3); /* 透明边框 */
+            border: 1px solid rgba(255, 255, 255, 0.3);
             color: var(--text-light);
             padding: 0.6rem 1.5rem;
-            border-radius: 24px; /* 圆角按钮 */
+            border-radius: 24px;
             cursor: pointer;
             font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
             transition: all 0.2s ease;
+            box-shadow: none !important;
         }
 
         .comic-back-btn:hover {
-            background-color: rgba(255, 255, 255, 0.1); /*  hover 背景变浅 */
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         .comic-display {
@@ -428,18 +433,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: none !important;
         }
 
-        /* 左右双图无缝拼合样式 - 核心无阴影修改 */
+        /* 左右双图无缝拼合样式 */
         .comic-page-container {
             display: flex;
             width: 100%;
             height: 100%;
             align-items: center;
             justify-content: center;
-            gap: 0 !important; /* 强制去掉中间间隙 */
+            gap: 0 !important;
             padding: 0;
             margin: 0;
+            box-shadow: none !important;
         }
 
         .comic-page-left, .comic-page-right {
@@ -448,52 +455,34 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 !important; /* 强制无内边距 */
-            margin: 0 !important; /* 强制无外边距 */
+            padding: 0 !important;
+            margin: 0 !important;
             position: relative;
+            box-shadow: none !important;
         }
 
-        /* 核心修改：彻底移除中间阴影 */
         .comic-page {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* 保持图片比例，完整显示 */
-            display: block !important; /* 强制去掉图片默认行高间隙 */
+            object-fit: contain;
+            display: block !important;
             border: 0;
             outline: 0;
+            box-shadow: none !important;
         }
 
-        /* 左图：仅左侧、顶部、底部有阴影，右侧完全无阴影 */
-        .comic-page-left .comic-page {
-            box-shadow: 
-                -12px 0 30px -10px rgba(0, 0, 0, 0.4),  /* 左侧阴影 */
-                0 12px 30px -10px rgba(0, 0, 0, 0.3),  /* 顶部阴影 */
-                0 -12px 30px -10px rgba(0, 0, 0, 0.3); /* 底部阴影 */
-            /* 右侧完全无阴影 */
-        }
-
-        /* 右图：仅右侧、顶部、底部有阴影，左侧完全无阴影 */
+        .comic-page-left .comic-page,
         .comic-page-right .comic-page {
-            box-shadow: 
-                12px 0 30px -10px rgba(0, 0, 0, 0.4),   /* 右侧阴影 */
-                0 12px 30px -10px rgba(0, 0, 0, 0.3),  /* 顶部阴影 */
-                0 -12px 30px -10px rgba(0, 0, 0, 0.3); /* 底部阴影 */
-            /* 左侧完全无阴影 */
-        }
-
-        /* 单图时显示完整阴影 */
-        .comic-page-left:only-child .comic-page,
-        .comic-page-right:only-child .comic-page {
-            box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.5); /* 完整均匀阴影 */
+            box-shadow: none !important;
         }
 
         .comic-btn {
-            background-color: rgba(255, 255, 255, 0.15); /* 半透明背景 */
+            background-color: rgba(255, 255, 255, 0.15);
             border: none;
             color: var(--text-light);
             width: 60px;
             height: 60px;
-            border-radius: 50%; /* 圆形按钮 */
+            border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -504,23 +493,24 @@
             top: 50%;
             transform: translateY(-50%);
             z-index: 10;
+            box-shadow: none !important;
         }
 
         .prev-btn {
-            left: 2rem; /* 左按钮位置 */
+            left: 2rem;
         }
 
         .next-btn {
-            right: 2rem; /* 右按钮位置 */
+            right: 2rem;
         }
 
         .comic-btn:disabled {
-            opacity: 0.3; /* 禁用状态半透明 */
+            opacity: 0.3;
             cursor: default;
         }
 
         .comic-btn:not(:disabled):hover {
-            background-color: rgba(255, 255, 255, 0.3); /*  hover 背景变深 */
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         /* 全屏查看弹窗样式 */
@@ -531,17 +521,19 @@
             width: 100vw;
             height: 100vh;
             background-color: rgba(0, 0, 0, 0.95);
-            z-index: 999; /* 层级低于漫画阅读区 */
-            display: none; /* 默认隐藏 */
+            z-index: 999;
+            display: none;
             align-items: center;
             justify-content: center;
             padding: 2rem;
+            box-shadow: none !important;
         }
 
         .fullscreen-img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
+            box-shadow: none !important;
         }
 
         .close-fullscreen {
@@ -553,16 +545,17 @@
             cursor: pointer;
             transition: transform 0.2s ease;
             z-index: 10;
+            box-shadow: none !important;
         }
 
         .close-fullscreen:hover {
-            transform: rotate(90deg); /*  hover 旋转 */
+            transform: rotate(90deg);
         }
 
-        /* 响应式布局（适配移动端） */
+        /* 响应式布局 */
         @media (max-width: 900px) {
             .main-container {
-                flex-direction: column; /* 垂直排列 */
+                flex-direction: column;
                 gap: 2rem;
                 padding: 1rem;
             }
@@ -571,7 +564,7 @@
                 flex: none;
                 padding: 1.5rem;
                 margin-bottom: 1rem;
-                align-items: center; /* 导航居中 */
+                align-items: center;
             }
 
             .site-title {
@@ -580,7 +573,7 @@
 
             .project-list {
                 display: flex;
-                flex-wrap: wrap; /* 换行 */
+                flex-wrap: wrap;
                 gap: 1.5rem;
                 justify-content: center;
             }
@@ -599,7 +592,7 @@
             }
 
             .comic-featured {
-                margin: 2rem auto; /* 完全居中 */
+                margin: 2rem auto;
                 max-width: 90%;
             }
 
@@ -609,22 +602,25 @@
                 font-size: 1.2rem;
             }
 
-            /* 移动端单图显示 - 无中间阴影 */
             .comic-page-container {
-                flex-direction: row; /* 恢复默认行排列 */
-                width: 90%; /* 限制宽度，适配移动端 */
+                flex-direction: row;
+                width: 90%;
+                box-shadow: none !important;
             }
-            /* 移动端只显示一个图片容器，隐藏另一个 */
+
             .mobile-single .comic-page-left {
                 flex: none;
                 width: 100%;
+                box-shadow: none !important;
             }
+
             .mobile-single .comic-page-right {
                 display: none;
+                box-shadow: none !important;
             }
-            /* 移动端单图显示完整阴影 */
+
             .mobile-single .comic-page {
-                box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.5) !important;
+                box-shadow: none !important;
             }
 
             .film-gallery {
@@ -632,7 +628,7 @@
             }
 
             .masonry-gallery {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* 移动端列数调整 */
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
                 grid-gap: 1.5rem;
             }
 
@@ -651,7 +647,7 @@
             }
 
             .cut-paper-item {
-                width: 80%; /* 移动端剪纸宽度调整 */
+                width: 80%;
             }
 
             .comic-chapter-list {
@@ -683,7 +679,7 @@
 
         <!-- 右侧内容区 -->
         <div class="right-content" id="rightContent">
-            <!-- 初始页：10张拼贴剪纸（支持大小+位置调整） -->
+            <!-- 初始页：剪纸 -->
             <div class="cut-paper-container" id="cutPaperContainer">
                 <div class="cut-paper-item" data-index="0"><img src="images/cut-paper/1.png" alt="剪纸1" class="cut-paper-img"></div>
                 <div class="cut-paper-item" data-index="1"><img src="images/cut-paper/2.png" alt="剪纸2" class="cut-paper-img"></div>
@@ -826,7 +822,6 @@
         <div class="comic-chapter-list">
             <div class="comic-chapter-item" data-chapter="1">第1话：回到记忆</div>
             <div class="comic-chapter-item" data-chapter="2">第2话：记录回忆</div>
-            <!-- 可添加更多话数 -->
         </div>
     </div>
 
@@ -853,6 +848,9 @@
     </div>
 
     <script>
+        // 核心新增：手动触发标记，只有手动点击才能打开漫画
+        let isComicManualTrigger = false;
+
         // 项目配置
         const projects = [
             { id: 'comic', bgImage: 'images/beijing/01.jpg', cursor: 'url("images/cursor/comic-cursor.png"), auto' },
@@ -862,10 +860,9 @@
             { id: 'world', bgImage: 'images/beijing/05.jpg', cursor: 'url("images/cursor/world-cursor.png"), auto' }
         ];
 
-        // 漫画数据（多话配置，每话为双图一组的数组）
+        // 漫画数据
         const comicsData = {
             1: [
-                // 每组为左右双图，最后一页若只有单图则填空字符串
                 ['images/comic/neiye0.png', 'images/comic/neiye1.png'],
                 ['images/comic/neiye2.png', 'images/comic/neiye3.png'],
                 ['images/comic/neiye4.png', 'images/comic/neiye5.png'],
@@ -884,7 +881,6 @@
                 ['images/comic/neiye30.png', 'images/comic/neiye31.png']
             ],
             2: [
-                // 第2话的双图数据，示例
                 ['images/comic/neiye b0.png', 'images/comic/neiye b1.png'],
                 ['images/comic/neiye b2.png', 'images/comic/neiye b3.png'],
                 ['images/comic/neiye b4.png', 'images/comic/neiye b5.png'],
@@ -928,14 +924,42 @@
         const masonryItems = document.querySelectorAll('.masonry-item');
         const filmItems = document.querySelectorAll('.film-item');
         const comicPageContainer = document.querySelector('.comic-page-container');
-        const rightContent = document.getElementById('rightContent'); // 右侧内容容器
+        const rightContent = document.getElementById('rightContent');
+
+        // 核心修改1：提前绑定全屏事件（页面加载前就生效）
+        document.addEventListener('fullscreenchange', (e) => {
+            // 阻止所有默认行为和冒泡
+            e.stopImmediatePropagation();
+            e.preventDefault();
+            
+            // 强制重置状态：只显示当前内容，绝对不显示漫画
+            if (cutPaperContainer.style.display !== 'none') {
+                cutPaperContainer.style.display = 'block';
+            }
+            // 强制隐藏漫画相关元素
+            comicReader.style.display = 'none';
+            comicDirectory.style.display = 'none';
+            // 重置手动触发标记
+            isComicManualTrigger = false;
+        }, { capture: true }); // 捕获阶段就执行，优先级最高
+
+        // 核心修改2：移除resize中所有漫画相关逻辑
+        window.addEventListener('resize', (e) => {
+            e.stopPropagation();
+            // 只做基础适配，不碰漫画逻辑
+            if (comicReader.style.display === 'flex' && isComicManualTrigger) {
+                // 仅当手动打开漫画时，才适配尺寸（避免全屏resize触发）
+                const isMobileNow = window.innerWidth <= 900;
+                comicPageContainer.classList.toggle('mobile-single', isMobileNow);
+            }
+        });
 
         // 检测是否为移动端
         function isMobile() {
             return window.innerWidth <= 900;
         }
 
-        // 1. 瀑布流/电影区滚动显现效果
+        // 瀑布流/电影区滚动显现效果
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -944,12 +968,10 @@
             });
         }, { threshold: 0.1 });
 
-        // 监听瀑布流元素
         masonryItems.forEach(item => observer.observe(item));
-        // 监听电影区元素
         filmItems.forEach(item => observer.observe(item));
 
-        // 2. 点击标题返回初始页
+        // 点击标题返回初始页
         siteLogo.addEventListener('click', () => {
             contentWrappers.forEach(w => w.classList.remove('active'));
             cutPaperContainer.style.display = 'block';
@@ -959,20 +981,18 @@
             comicReader.style.display = 'none';
             comicDirectory.style.display = 'none';
             document.body.style.overflow = 'auto';
-            // 重置移动端样式
             comicPageContainer.classList.remove('mobile-single');
-            // 滚动到顶部
             rightContent.scrollTop = 0;
+            // 重置手动触发标记
+            isComicManualTrigger = false;
         });
 
-        // 3. 项目切换 - 修复：切换时滚动到顶部
+        // 项目切换
         projectItems.forEach(item => {
             item.addEventListener('click', () => {
                 const project = projects.find(p => p.id === item.dataset.project);
                 if (project) {
                     cutPaperContainer.style.display = 'none';
-                    comicReader.style.display = 'none';
-                    comicDirectory.style.display = 'none';
                     document.body.style.overflow = 'auto';
                     bgElement.style.backgroundImage = `url('${project.bgImage}')`;
                     document.body.style.cursor = project.cursor;
@@ -981,133 +1001,69 @@
                     contentWrappers.forEach(w => w.classList.remove('active'));
                     const targetContent = document.getElementById(`${project.id}-content`);
                     targetContent.classList.add('active');
-                    // 核心修复：切换项目时强制滚动到顶部
                     rightContent.scrollTop = 0;
-                    // 重置移动端样式
                     comicPageContainer.classList.remove('mobile-single');
+                    // 重置手动触发标记
+                    isComicManualTrigger = false;
                 }
             });
         });
 
-        // 4. 剪纸交互（支持位置、大小、旋转、层级调整）
+        // 剪纸交互
         const cutPaperItems = document.querySelectorAll('.cut-paper-item');
         cutPaperItems.forEach((item, index) => {
             let initX, initY, initRotate, zIndex, width;
-            // 每张剪纸的独立配置（可按需修改）
             switch(parseInt(item.dataset.index)) {
-                case 0: // 第1张剪纸
-                    initX = -250;    // 左右位置（负值左移，正值右移）
-                    initY = -280;    // 上下位置（负值上移，正值下移）
-                    initRotate = 0;  // 旋转角度（负值逆时针，正值顺时针）
-                    zIndex = 2;      // 叠放层级（数值越大越靠上）
-                    width = '8%';   // 宽度（支持百分比或像素值，如'150px'）
-                    break;
-                case 1: // 第2张剪纸
-                    initX = -160;
-                    initY = -210;
-                    initRotate = 5;
-                    zIndex = 5;
-                    width = '10%';
-                    break;
-                case 2: // 第3张剪纸
-                    initX = -40;
-                    initY = -260;
-                    initRotate = -3;
-                    zIndex = 6;
-                    width = '14%';
-                    break;
-                case 3: // 第4张剪纸
-                    initX = -190;
-                    initY = 130;
-                    initRotate = 8;
-                    zIndex = 4;
-                    width = '15%';
-                    break;
-                case 4: // 第5张剪纸
-                    initX = 40;
-                    initY = 50;
-                    initRotate = -5;
-                    zIndex = 7;
-                    width = '27%';
-                    break;
-                case 5: // 第6张剪纸
-                    initX = 220;
-                    initY = 120;
-                    initRotate = 10;
-                    zIndex = 4;
-                    width = '29%';
-                    break;
-                case 6: // 第7张剪纸
-                    initX = 220;
-                    initY = -40;
-                    initRotate = -8;
-                    zIndex = 3;
-                    width = '16%';
-                    break;
-                case 7: // 第8张剪纸
-                    initX = -190;
-                    initY = -40;
-                    initRotate = -9;
-                    zIndex = 1;
-                    width = '40%';
-                    break;
-                case 8: // 第9张剪纸
-                    initX = 130;
-                    initY = -110;
-                    initRotate = -3;
-                    zIndex = 2;
-                    width = '32%';
-                    break;
-                case 9: // 第10张剪纸
-                    initX = 220;
-                    initY = -210;
-                    initRotate = -10;
-                    zIndex = 1;
-                    width = '23%';
-                    break;
-                default: // 默认配置（未匹配到的剪纸）
-                    initX = 0;
-                    initY = 0;
-                    initRotate = 0;
-                    zIndex = 0;
-                    width = '25%';
+                case 0:
+                    initX = -250; initY = -280; initRotate = 0; zIndex = 2; width = '8%'; break;
+                case 1:
+                    initX = -160; initY = -210; initRotate = 5; zIndex = 5; width = '10%'; break;
+                case 2:
+                    initX = -40; initY = -260; initRotate = -3; zIndex = 6; width = '14%'; break;
+                case 3:
+                    initX = -190; initY = 130; initRotate = 8; zIndex = 4; width = '15%'; break;
+                case 4:
+                    initX = 40; initY = 50; initRotate = -5; zIndex = 7; width = '27%'; break;
+                case 5:
+                    initX = 220; initY = 120; initRotate = 10; zIndex = 4; width = '29%'; break;
+                case 6:
+                    initX = 220; initY = -40; initRotate = -8; zIndex = 3; width = '16%'; break;
+                case 7:
+                    initX = -190; initY = -40; initRotate = -9; zIndex = 1; width = '40%'; break;
+                case 8:
+                    initX = 130; initY = -110; initRotate = -3; zIndex = 2; width = '32%'; break;
+                case 9:
+                    initX = 220; initY = -210; initRotate = -10; zIndex = 1; width = '23%'; break;
+                default:
+                    initX = 0; initY = 0; initRotate = 0; zIndex = 0; width = '25%';
             }
-            // 应用配置
             item.style.transform = `translate(-50%, -50%) translate(${initX}px, ${initY}px) rotate(${initRotate}deg)`;
             item.style.zIndex = zIndex;
             item.style.width = width;
 
-            // 鼠标悬浮交互动画
             item.addEventListener('mouseenter', () => {
-                const moveX = Math.random() * 30 - 15; // 随机左右偏移
-                const moveY = Math.random() * 30 - 15; // 随机上下偏移
-                const rotate = Math.random() * 10 - 5; // 随机旋转
+                const moveX = Math.random() * 30 - 15;
+                const moveY = Math.random() * 30 - 15;
+                const rotate = Math.random() * 10 - 5;
                 item.style.transform = `translate(-50%, -50%) translate(${moveX}px, ${moveY}px) rotate(${rotate}deg)`;
-                item.style.filter = 'brightness(1.1)'; // 亮度提升
+                item.style.filter = 'brightness(1.1)';
             });
             item.addEventListener('mouseleave', () => {
-                // 恢复初始状态
                 item.style.transform = `translate(-50%, -50%) translate(${initX}px, ${initY}px) rotate(${initRotate}deg)`;
                 item.style.filter = 'brightness(1)';
             });
         });
 
-        // 5. 漫画目录功能
+        // 漫画相关变量
         let currentComicId = '1';
         let currentPage = 0;
         let currentComicPages = [];
-        let mobileSinglePages = []; // 移动端单图数组
-        let currentMobileIndex = 0; // 移动端当前页码
+        let mobileSinglePages = [];
+        let currentMobileIndex = 0;
 
-        // 修复：监听全屏事件，阻止跳转到漫画
-        document.addEventListener('fullscreenchange', (e) => {
-            // 仅记录日志，不执行任何跳转操作
-            console.log('全屏状态变化:', !!document.fullscreenElement);
-            e.preventDefault(); // 阻止默认行为
-        });
-
-        // 打开漫画目录
+        // 核心修改3：打开漫画目录时标记为手动触发
         comicFeaturedImg.addEventListener('click', () => {
+            isComicManualTrigger = true; // 标记为手动操作
             comicDirectory.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         });
@@ -1116,9 +1072,10 @@
         comicDirClose.addEventListener('click', () => {
             comicDirectory.style.display = 'none';
             document.body.style.overflow = 'auto';
+            isComicManualTrigger = false;
         });
 
-        // 转换双图数组为单图数组（用于移动端）
+        // 转换双图数组为单图数组
         function convertToSinglePages(doublePages) {
             const singlePages = [];
             doublePages.forEach(pair => {
@@ -1128,27 +1085,26 @@
             return singlePages;
         }
 
-        // 选择漫画章节
+        // 选择漫画章节（手动触发标记）
         comicChapterItems.forEach(item => {
             item.addEventListener('click', () => {
+                isComicManualTrigger = true; // 标记为手动操作
                 currentComicId = item.dataset.chapter;
                 openComicReader(currentComicId);
                 comicDirectory.style.display = 'none';
             });
         });
 
-        // 打开漫画阅读器
+        // 打开漫画阅读器（仅手动触发时生效）
         function openComicReader(id) {
+            if (!isComicManualTrigger) return; // 非手动操作直接返回
             currentComicPages = comicsData[id] || [];
             
-            // 判断设备类型
             if (isMobile()) {
-                // 移动端：转换为单图数组
                 mobileSinglePages = convertToSinglePages(currentComicPages);
                 currentMobileIndex = 0;
                 comicPageContainer.classList.add('mobile-single');
             } else {
-                // PC端：双图模式
                 currentPage = 0;
                 comicPageContainer.classList.remove('mobile-single');
             }
@@ -1158,51 +1114,40 @@
             loadComicPage();
         }
 
-        // 加载漫画页面（适配移动端单图/PC端双图）
+        // 加载漫画页面
         function loadComicPage() {
+            if (!isComicManualTrigger) return; // 非手动操作直接返回
             if (isMobile()) {
-                // 移动端单图逻辑
                 if (mobileSinglePages.length === 0) return;
-                
-                // 只显示左容器，加载当前单图
                 comicPageLeft.src = mobileSinglePages[currentMobileIndex];
                 comicPageRight.src = '';
-                
-                // 隐藏右容器
                 comicPageLeft.parentElement.style.display = 'flex';
                 comicPageRight.parentElement.style.display = 'none';
-
-                // 更新页码信息
                 pageInfo.textContent = `第 ${currentMobileIndex + 1} / ${mobileSinglePages.length} 页`;
                 prevBtn.disabled = currentMobileIndex === 0; 
                 nextBtn.disabled = currentMobileIndex === mobileSinglePages.length - 1;
             } else {
-                // PC端双图逻辑
                 if (currentComicPages.length === 0) return;
                 const [leftSrc, rightSrc] = currentComicPages[currentPage];
                 comicPageLeft.src = leftSrc || '';
                 comicPageRight.src = rightSrc || '';
-                
-                // 隐藏空图的容器
                 comicPageLeft.parentElement.style.display = leftSrc ? 'flex' : 'none';
                 comicPageRight.parentElement.style.display = rightSrc ? 'flex' : 'none';
-
                 pageInfo.textContent = `第 ${currentPage + 1} / ${currentComicPages.length} 页`;
                 prevBtn.disabled = currentPage === 0; 
                 nextBtn.disabled = currentPage === currentComicPages.length - 1;
             }
         }
 
-        // 漫画翻页（适配移动端单图/PC端双图）
+        // 漫画翻页
         prevBtn.addEventListener('click', () => { 
+            if (!isComicManualTrigger) return;
             if (isMobile()) {
-                // 移动端单图翻页
                 if (currentMobileIndex > 0) {
                     currentMobileIndex--;
                     loadComicPage();
                 }
             } else {
-                // PC端双图翻页
                 if (currentPage > 0) { 
                     currentPage--; 
                     loadComicPage(); 
@@ -1211,14 +1156,13 @@
         });
 
         nextBtn.addEventListener('click', () => { 
+            if (!isComicManualTrigger) return;
             if (isMobile()) {
-                // 移动端单图翻页
                 if (currentMobileIndex < mobileSinglePages.length - 1) {
                     currentMobileIndex++;
                     loadComicPage();
                 }
             } else {
-                // PC端双图翻页
                 if (currentPage < currentComicPages.length - 1) { 
                     currentPage++; 
                     loadComicPage(); 
@@ -1226,21 +1170,19 @@
             }
         });
 
-        // 修复：关闭漫画阅读 → 跳转到漫画目录而非封面
+        // 关闭漫画阅读
         backBtn.addEventListener('click', () => { 
             comicReader.style.display = 'none'; 
             document.body.style.overflow = 'auto'; 
-            // 重置移动端样式
             comicPageContainer.classList.remove('mobile-single');
-            // 核心修复：打开漫画目录
             comicDirectory.style.display = 'flex';
+            isComicManualTrigger = false;
         });
 
-        // 键盘左右箭头翻页（适配移动端/PC端）
+        // 键盘操作
         document.addEventListener('keydown', (e) => {
-            if (comicReader.style.display !== 'none') {
+            if (comicReader.style.display === 'flex' && isComicManualTrigger) {
                 if (isMobile()) {
-                    // 移动端键盘翻页
                     if (e.key === 'ArrowLeft' && currentMobileIndex > 0) {
                         currentMobileIndex--;
                         loadComicPage();
@@ -1249,42 +1191,42 @@
                         loadComicPage();
                     }
                 } else {
-                    // PC端键盘翻页
                     if (e.key === 'ArrowLeft' && currentPage > 0) currentPage--;
                     else if (e.key === 'ArrowRight' && currentPage < currentComicPages.length - 1) currentPage++;
                     loadComicPage();
                 }
                 
-                // 关闭快捷键
                 if (e.key === 'Escape') { 
                     comicReader.style.display = 'none'; 
                     document.body.style.overflow = 'auto'; 
                     comicPageContainer.classList.remove('mobile-single');
-                    // 修复：ESC关闭时也跳目录
                     comicDirectory.style.display = 'flex';
+                    isComicManualTrigger = false;
                     return; 
                 }
-            } else if (comicDirectory.style.display !== 'none') {
+            } else if (comicDirectory.style.display === 'flex') {
                 if (e.key === 'Escape') {
                     comicDirectory.style.display = 'none';
                     document.body.style.overflow = 'auto';
+                    isComicManualTrigger = false;
                 }
             }
         });
 
-        // 监听窗口大小变化，自动切换显示模式
-        window.addEventListener('resize', () => {
-            if (comicReader.style.display !== 'none') {
-                openComicReader(currentComicId); // 重新加载适配新尺寸
-            }
-        });
-
-        // 6. 作品全屏查看功能
+        // 作品全屏查看
         galleryImages.forEach(img => {
-            img.addEventListener('click', () => {
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.preventDefault();
                 fullscreenImg.src = img.dataset.src || img.src;
                 fullscreenView.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
+                
+                if (fullscreenView.requestFullscreen) {
+                    fullscreenView.requestFullscreen().catch(err => {
+                        console.log('全屏请求失败:', err);
+                    });
+                }
             });
         });
 
@@ -1292,15 +1234,39 @@
         closeFullscreen.addEventListener('click', () => {
             fullscreenView.style.display = 'none';
             document.body.style.overflow = 'auto';
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
         });
 
-        // 点击空白处关闭全屏
         fullscreenView.addEventListener('click', (e) => {
             if (e.target === fullscreenView) {
                 fullscreenView.style.display = 'none';
                 document.body.style.overflow = 'auto';
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
             }
         });
+
+        // 强化初始化：锁死首页状态
+        window.addEventListener('DOMContentLoaded', function() {
+            // DOM加载完成就锁定，比onload更早
+            cutPaperContainer.style.display = 'block';
+            contentWrappers.forEach(w => w.classList.remove('active'));
+            comicReader.style.display = 'none';
+            comicDirectory.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            isComicManualTrigger = false; // 初始化为非手动
+        });
+
+        window.onload = function() {
+            // 双重保险：onload再确认一次
+            cutPaperContainer.style.display = 'block';
+            comicReader.style.display = 'none';
+            comicDirectory.style.display = 'none';
+            isComicManualTrigger = false;
+        };
     </script>
 </body>
 </html>
