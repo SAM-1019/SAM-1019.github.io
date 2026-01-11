@@ -1,11 +1,11 @@
 /* 基础变量定义（莫兰迪色系） */
 :root {
-    --morandi-gray: #9b979c;
-    --morandi-pink: #d4b5b0;
-    --morandi-blue: #a9b7c0;
-    --morandi-green: #b5b991;
-    --morandi-purple: #b39cba;
-    --text-light: #f0f0f0;
+    --morandi-gray: #ffffff;
+    --morandi-pink: #ffffff;
+    --morandi-blue: #ffffff;
+    --morandi-green: #ffffff;
+    --morandi-purple: #ffffff;
+    --text-light: #ffffff;
     --text-dark: #333333;
 }
 
@@ -34,7 +34,7 @@ body {
     background-position: center;
     z-index: -1;
     transition: background-image 1s ease-in-out;
-    filter: brightness(0.75); /* 降低亮度，提升文字可读性 */
+    filter: brightness(0.20); /* 降低亮度，提升文字可读性 */
 }
 
 /* 主容器布局 */
@@ -285,7 +285,7 @@ body {
 
 .note-date {
     font-size: 0.8rem;
-    color: var(--morandi-pink); /* 粉色日期 */
+    color: var(--morandi-blue); /* 蓝色日期 */
     margin-bottom: 0.3rem;
 }
 
