@@ -237,18 +237,36 @@
             text-decoration: none;
         }
 
+        /* 绘画分组样式 */
+        .painting-group {
+            margin-bottom: 6rem;
+            text-align: right; /* 这里让标题和描述右对齐 */
+        }
+        .group-title {
+            font-size: 2rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+        .group-desc {
+            font-size: 1rem;
+            color: var(--text-light);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
         /* 绘画/摄影瀑布流布局 */
         .masonry-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             grid-gap: 2rem;
             grid-auto-flow: dense;
-            padding: 2rem 0;
+            padding: 0;
         }
 
         .masonry-item {
             break-inside: avoid;
-            margin-bottom: 2rem;
+            margin-bottom: 0;
             transition: all 0.6s ease;
             opacity: 0;
             transform: translateY(20px);
@@ -328,15 +346,14 @@
         }
 
         .comic-dir-title {
-            color: var(--text-light);
-            font-size: 1.8rem;
-            margin-bottom: 3rem;
-            font-weight: 300;
+            display: none;
         }
 
         .comic-chapter-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
             gap: 2rem;
             max-width: 1000px;
             width: 100%;
@@ -344,13 +361,14 @@
 
         .comic-chapter-item {
             background-color: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
+            padding: 1.5rem 2.5rem;
             border-radius: 8px;
             color: var(--text-light);
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
             box-shadow: none !important;
+            min-width: 180px;
         }
 
         .comic-chapter-item:hover {
@@ -371,6 +389,29 @@
 
         .comic-dir-close:hover {
             transform: rotate(90deg);
+        }
+
+        /* B站漫画跳转按钮 */
+        .bilibili-comic-link {
+            position: absolute;
+            bottom: 2rem;
+            right: 3rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 1001;
+        }
+        .bilibili-comic-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.1);
         }
 
         /* 漫画阅读区样式 */
@@ -552,6 +593,30 @@
             transform: rotate(90deg);
         }
 
+        /* 全屏弹窗左右按钮 */
+        .fs-prev, .fs-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+        .fs-prev { left: 30px; }
+        .fs-next { right: 30px; }
+        .fs-prev:hover, .fs-next:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
         /* 响应式布局 */
         @media (max-width: 900px) {
             .main-container {
@@ -653,6 +718,10 @@
             .comic-chapter-list {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
+
+            .group-title {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
@@ -726,46 +795,46 @@
             <!-- 摄影内容 -->
             <div id="photography-content" class="content-wrapper">
                 <div class="masonry-gallery">
-                    <div class="masonry-item"><img src="images/photography/work1.jpeg" alt="摄影1" data-src="images/photography/work1.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work2.jpeg" alt="摄影2" data-src="images/photography/work2.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work3.jpeg" alt="摄影3" data-src="images/photography/work3.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work4.jpeg" alt="摄影4" data-src="images/photography/work4.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work5.jpeg" alt="摄影5" data-src="images/photography/work5.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work6.jpeg" alt="摄影6" data-src="images/photography/work6.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work7.jpeg" alt="摄影7" data-src="images/photography/work7.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work8.jpeg" alt="摄影8" data-src="images/photography/work8.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work9.jpeg" alt="摄影9" data-src="images/photography/work9.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work10.jpeg" alt="摄影10" data-src="images/photography/work10.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work11.jpeg" alt="摄影11" data-src="images/photography/work11.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work12.jpeg" alt="摄影12" data-src="images/photography/work12.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work13.jpeg" alt="摄影13" data-src="images/photography/work13.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work14.jpeg" alt="摄影14" data-src="images/photography/work14.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work15.jpeg" alt="摄影15" data-src="images/photography/work15.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work16.jpeg" alt="摄影16" data-src="images/photography/work16.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work17.jpeg" alt="摄影17" data-src="images/photography/work17.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work18.jpeg" alt="摄影18" data-src="images/photography/work18.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work19.jpeg" alt="摄影19" data-src="images/photography/work19.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work20.jpeg" alt="摄影20" data-src="images/photography/work20.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work21.jpeg" alt="摄影21" data-src="images/photography/work21.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work22.jpeg" alt="摄影22" data-src="images/photography/work22.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work23.jpeg" alt="摄影23" data-src="images/photography/work23.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work24.jpeg" alt="摄影24" data-src="images/photography/work24.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work25.jpeg" alt="摄影25" data-src="images/photography/work25.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work26.jpeg" alt="摄影26" data-src="images/photography/work26.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work27.jpeg" alt="摄影27" data-src="images/photography/work27.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work28.jpeg" alt="摄影28" data-src="images/photography/work28.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work29.jpeg" alt="摄影29" data-src="images/photography/work29.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work30.jpeg" alt="摄影30" data-src="images/photography/work30.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work31.jpeg" alt="摄影31" data-src="images/photography/work31.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work32.jpeg" alt="摄影32" data-src="images/photography/work32.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work33.jpeg" alt="摄影33" data-src="images/photography/work33.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work34.jpeg" alt="摄影34" data-src="images/photography/work34.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work35.jpeg" alt="摄影35" data-src="images/photography/work35.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work36.jpeg" alt="摄影36" data-src="images/photography/work36.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work37.jpeg" alt="摄影37" data-src="images/photography/work37.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work38.jpeg" alt="摄影38" data-src="images/photography/work38.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work39.jpeg" alt="摄影39" data-src="images/photography/work39.jpeg"></div>
-                    <div class="masonry-item"><img src="images/photography/work40.jpeg" alt="摄影40" data-src="images/photography/work40.jpeg"></div>
+                    <div class="masonry-item"><img src="images/photography/work1.jpeg" alt="摄影1"></div>
+                    <div class="masonry-item"><img src="images/photography/work2.jpeg" alt="摄影2"></div>
+                    <div class="masonry-item"><img src="images/photography/work3.jpeg" alt="摄影3"></div>
+                    <div class="masonry-item"><img src="images/photography/work4.jpeg" alt="摄影4"></div>
+                    <div class="masonry-item"><img src="images/photography/work5.jpeg" alt="摄影5"></div>
+                    <div class="masonry-item"><img src="images/photography/work6.jpeg" alt="摄影6"></div>
+                    <div class="masonry-item"><img src="images/photography/work7.jpeg" alt="摄影7"></div>
+                    <div class="masonry-item"><img src="images/photography/work8.jpeg" alt="摄影8"></div>
+                    <div class="masonry-item"><img src="images/photography/work9.jpeg" alt="摄影9"></div>
+                    <div class="masonry-item"><img src="images/photography/work10.jpeg" alt="摄影10"></div>
+                    <div class="masonry-item"><img src="images/photography/work11.jpeg" alt="摄影11"></div>
+                    <div class="masonry-item"><img src="images/photography/work12.jpeg" alt="摄影12"></div>
+                    <div class="masonry-item"><img src="images/photography/work13.jpeg" alt="摄影13"></div>
+                    <div class="masonry-item"><img src="images/photography/work14.jpeg" alt="摄影14"></div>
+                    <div class="masonry-item"><img src="images/photography/work15.jpeg" alt="摄影15"></div>
+                    <div class="masonry-item"><img src="images/photography/work16.jpeg" alt="摄影16"></div>
+                    <div class="masonry-item"><img src="images/photography/work17.jpeg" alt="摄影17"></div>
+                    <div class="masonry-item"><img src="images/photography/work18.jpeg" alt="摄影18"></div>
+                    <div class="masonry-item"><img src="images/photography/work19.jpeg" alt="摄影19"></div>
+                    <div class="masonry-item"><img src="images/photography/work20.jpeg" alt="摄影20"></div>
+                    <div class="masonry-item"><img src="images/photography/work21.jpeg" alt="摄影21"></div>
+                    <div class="masonry-item"><img src="images/photography/work22.jpeg" alt="摄影22"></div>
+                    <div class="masonry-item"><img src="images/photography/work23.jpeg" alt="摄影23"></div>
+                    <div class="masonry-item"><img src="images/photography/work24.jpeg" alt="摄影24"></div>
+                    <div class="masonry-item"><img src="images/photography/work25.jpeg" alt="摄影25"></div>
+                    <div class="masonry-item"><img src="images/photography/work26.jpeg" alt="摄影26"></div>
+                    <div class="masonry-item"><img src="images/photography/work27.jpeg" alt="摄影27"></div>
+                    <div class="masonry-item"><img src="images/photography/work28.jpeg" alt="摄影28"></div>
+                    <div class="masonry-item"><img src="images/photography/work29.jpeg" alt="摄影29"></div>
+                    <div class="masonry-item"><img src="images/photography/work30.jpeg" alt="摄影30"></div>
+                    <div class="masonry-item"><img src="images/photography/work31.jpeg" alt="摄影31"></div>
+                    <div class="masonry-item"><img src="images/photography/work32.jpeg" alt="摄影32"></div>
+                    <div class="masonry-item"><img src="images/photography/work33.jpeg" alt="摄影33"></div>
+                    <div class="masonry-item"><img src="images/photography/work34.jpeg" alt="摄影34"></div>
+                    <div class="masonry-item"><img src="images/photography/work35.jpeg" alt="摄影35"></div>
+                    <div class="masonry-item"><img src="images/photography/work36.jpeg" alt="摄影36"></div>
+                    <div class="masonry-item"><img src="images/photography/work37.jpeg" alt="摄影37"></div>
+                    <div class="masonry-item"><img src="images/photography/work38.jpeg" alt="摄影38"></div>
+                    <div class="masonry-item"><img src="images/photography/work39.jpeg" alt="摄影39"></div>
+                    <div class="masonry-item"><img src="images/photography/work40.jpeg" alt="摄影40"></div>
                 </div>
             </div>
 
@@ -818,11 +887,15 @@
     <!-- 漫画目录 -->
     <div id="comic-directory" class="comic-directory">
         <span class="comic-dir-close">&times;</span>
-        <h2 class="comic-dir-title">回忆日</h2>
         <div class="comic-chapter-list">
             <div class="comic-chapter-item" data-chapter="1">第1话：回到记忆</div>
             <div class="comic-chapter-item" data-chapter="2">第2话：记录回忆</div>
+            <div class="comic-chapter-item" data-chapter="3">第3话：寻找答案</div>
         </div>
+        <!-- B站漫画跳转 -->
+        <a href="https://manga.bilibili.com/detail/mc39625?from=manga_homepage" target="_blank" class="bilibili-comic-link">
+            <i class="fa-solid fa-up-right-from-square"></i>
+        </a>
     </div>
 
     <!-- 漫画阅读区 -->
@@ -845,6 +918,8 @@
     <div id="fullscreen-view" class="fullscreen-view">
         <span class="close-fullscreen">&times;</span>
         <img src="" alt="全屏作品" class="fullscreen-img">
+        <div class="fs-prev"><i class="fa-solid fa-chevron-left"></i></div>
+        <div class="fs-next"><i class="fa-solid fa-chevron-right"></i></div>
     </div>
 
     <script>
@@ -860,7 +935,7 @@
             { id: 'world', bgImage: 'images/beijing/05.jpg', cursor: 'url("images/cursor/world-cursor.png"), auto' }
         ];
 
-        // 漫画数据
+        // 漫画数据（新增第3话）
         const comicsData = {
             1: [
                 ['images/comic/neiye0.png', 'images/comic/neiye1.png'],
@@ -897,6 +972,24 @@
                 ['images/comic/neiye b26.png', 'images/comic/neiye b27.png'],
                 ['images/comic/neiye b28.png', 'images/comic/neiye b29.png'],
                 ['images/comic/neiye b30.png', 'images/comic/neiye b31.png']
+            ],
+            3: [
+                ['images/comic/neiye c0.jpg', 'images/comic/neiye c1.png'],
+                ['images/comic/neiye c2.png', 'images/comic/neiye c3.png'],
+                ['images/comic/neiye c4.png', 'images/comic/neiye c5.png'],
+                ['images/comic/neiye c6.png', 'images/comic/neiye c7.png'],
+                ['images/comic/neiye c8.png', 'images/comic/neiye c9.png'],
+                ['images/comic/neiye c10.png', 'images/comic/neiye c11.png'],
+                ['images/comic/neiye c12.png', 'images/comic/neiye c13.png'],
+                ['images/comic/neiye c14.png', 'images/comic/neiye c15.png'],
+                ['images/comic/neiye c16.png', 'images/comic/neiye c17.png'],
+                ['images/comic/neiye c18.png', 'images/comic/neiye c19.png'],
+                ['images/comic/neiye c20.png', 'images/comic/neiye c21.png'],
+                ['images/comic/neiye c22.png', 'images/comic/neiye c23.png'],
+                ['images/comic/neiye c24.png', 'images/comic/neiye c25.png'],
+                ['images/comic/neiye c26.png', 'images/comic/neiye c27.png'],
+                ['images/comic/neiye c28.png', 'images/comic/neiye c29.png'],
+                ['images/comic/neiye c30.png', 'images/comic/neiye c31.png']
             ]
         };
 
@@ -925,30 +1018,27 @@
         const filmItems = document.querySelectorAll('.film-item');
         const comicPageContainer = document.querySelector('.comic-page-container');
         const rightContent = document.getElementById('rightContent');
+        const fsPrev = document.querySelector('.fs-prev');
+        const fsNext = document.querySelector('.fs-next');
+        let allImages = [];
+        let currentFsIndex = 0;
 
         // 核心修改1：提前绑定全屏事件（页面加载前就生效）
         document.addEventListener('fullscreenchange', (e) => {
-            // 阻止所有默认行为和冒泡
             e.stopImmediatePropagation();
             e.preventDefault();
-            
-            // 强制重置状态：只显示当前内容，绝对不显示漫画
             if (cutPaperContainer.style.display !== 'none') {
                 cutPaperContainer.style.display = 'block';
             }
-            // 强制隐藏漫画相关元素
             comicReader.style.display = 'none';
             comicDirectory.style.display = 'none';
-            // 重置手动触发标记
             isComicManualTrigger = false;
-        }, { capture: true }); // 捕获阶段就执行，优先级最高
+        }, { capture: true });
 
         // 核心修改2：移除resize中所有漫画相关逻辑
         window.addEventListener('resize', (e) => {
             e.stopPropagation();
-            // 只做基础适配，不碰漫画逻辑
             if (comicReader.style.display === 'flex' && isComicManualTrigger) {
-                // 仅当手动打开漫画时，才适配尺寸（避免全屏resize触发）
                 const isMobileNow = window.innerWidth <= 900;
                 comicPageContainer.classList.toggle('mobile-single', isMobileNow);
             }
@@ -983,7 +1073,6 @@
             document.body.style.overflow = 'auto';
             comicPageContainer.classList.remove('mobile-single');
             rightContent.scrollTop = 0;
-            // 重置手动触发标记
             isComicManualTrigger = false;
         });
 
@@ -1003,8 +1092,12 @@
                     targetContent.classList.add('active');
                     rightContent.scrollTop = 0;
                     comicPageContainer.classList.remove('mobile-single');
-                    // 重置手动触发标记
                     isComicManualTrigger = false;
+                    
+                    // 刷新全屏图片数组
+                    if(project.id === 'painting' || project.id === 'photography'){
+                        refreshFullscreenImages();
+                    }
                 }
             });
         });
@@ -1061,9 +1154,9 @@
         let mobileSinglePages = [];
         let currentMobileIndex = 0;
 
-        // 核心修改3：打开漫画目录时标记为手动触发
+        // 打开漫画目录
         comicFeaturedImg.addEventListener('click', () => {
-            isComicManualTrigger = true; // 标记为手动操作
+            isComicManualTrigger = true;
             comicDirectory.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         });
@@ -1085,19 +1178,19 @@
             return singlePages;
         }
 
-        // 选择漫画章节（手动触发标记）
+        // 选择漫画章节
         comicChapterItems.forEach(item => {
             item.addEventListener('click', () => {
-                isComicManualTrigger = true; // 标记为手动操作
+                isComicManualTrigger = true;
                 currentComicId = item.dataset.chapter;
                 openComicReader(currentComicId);
                 comicDirectory.style.display = 'none';
             });
         });
 
-        // 打开漫画阅读器（仅手动触发时生效）
+        // 打开漫画阅读器
         function openComicReader(id) {
-            if (!isComicManualTrigger) return; // 非手动操作直接返回
+            if (!isComicManualTrigger) return;
             currentComicPages = comicsData[id] || [];
             
             if (isMobile()) {
@@ -1116,7 +1209,7 @@
 
         // 加载漫画页面
         function loadComicPage() {
-            if (!isComicManualTrigger) return; // 非手动操作直接返回
+            if (!isComicManualTrigger) return;
             if (isMobile()) {
                 if (mobileSinglePages.length === 0) return;
                 comicPageLeft.src = mobileSinglePages[currentMobileIndex];
@@ -1211,61 +1304,87 @@
                     isComicManualTrigger = false;
                 }
             }
+
+            // 全屏弹窗键盘翻页
+            if(fullscreenView.style.display === 'flex'){
+                if(e.key === 'ArrowLeft') showPrevImage();
+                if(e.key === 'ArrowRight') showNextImage();
+                if(e.key === 'Escape') closeFullscreenFunc();
+            }
         });
 
+        // 刷新全屏图片数组
+        function refreshFullscreenImages(){
+            allImages = [];
+            const activeContent = document.querySelector('.content-wrapper.active');
+            if(!activeContent) return;
+            const imgs = activeContent.querySelectorAll('.masonry-item img');
+            imgs.forEach(img => allImages.push(img.src));
+        }
+
         // 作品全屏查看
-        galleryImages.forEach(img => {
+        galleryImages.forEach((img,idx) => {
             img.addEventListener('click', (e) => {
                 e.stopPropagation();
                 e.preventDefault();
-                fullscreenImg.src = img.dataset.src || img.src;
-                fullscreenView.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                
-                if (fullscreenView.requestFullscreen) {
-                    fullscreenView.requestFullscreen().catch(err => {
-                        console.log('全屏请求失败:', err);
-                    });
-                }
+                refreshFullscreenImages();
+                currentFsIndex = allImages.indexOf(img.src);
+                openFullscreen(img.src);
             });
         });
 
-        // 关闭全屏查看
-        closeFullscreen.addEventListener('click', () => {
+        // 打开全屏
+        function openFullscreen(src){
+            fullscreenImg.src = src;
+            fullscreenView.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 关闭全屏
+        function closeFullscreenFunc(){
             fullscreenView.style.display = 'none';
             document.body.style.overflow = 'auto';
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            }
-        });
+            if(document.exitFullscreen) document.exitFullscreen();
+        }
+
+        // 上一张 / 下一张
+        function showPrevImage(){
+            if(currentFsIndex <= 0) return;
+            currentFsIndex--;
+            fullscreenImg.src = allImages[currentFsIndex];
+        }
+        function showNextImage(){
+            if(currentFsIndex >= allImages.length-1) return;
+            currentFsIndex++;
+            fullscreenImg.src = allImages[currentFsIndex];
+        }
+
+        // 全屏弹窗事件
+        closeFullscreen.addEventListener('click', closeFullscreenFunc);
+        fsPrev.addEventListener('click', showPrevImage);
+        fsNext.addEventListener('click', showNextImage);
 
         fullscreenView.addEventListener('click', (e) => {
-            if (e.target === fullscreenView) {
-                fullscreenView.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                }
-            }
+            if (e.target === fullscreenView) closeFullscreenFunc();
         });
 
-        // 强化初始化：锁死首页状态
+        // 强化初始化
         window.addEventListener('DOMContentLoaded', function() {
-            // DOM加载完成就锁定，比onload更早
             cutPaperContainer.style.display = 'block';
             contentWrappers.forEach(w => w.classList.remove('active'));
             comicReader.style.display = 'none';
             comicDirectory.style.display = 'none';
             document.body.style.overflow = 'auto';
-            isComicManualTrigger = false; // 初始化为非手动
+            isComicManualTrigger = false;
+            refreshFullscreenImages();
         });
 
         window.onload = function() {
-            // 双重保险：onload再确认一次
             cutPaperContainer.style.display = 'block';
             comicReader.style.display = 'none';
             comicDirectory.style.display = 'none';
             isComicManualTrigger = false;
+            refreshFullscreenImages();
         };
     </script>
 </body>
